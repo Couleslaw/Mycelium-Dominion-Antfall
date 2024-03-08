@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://3hglaqyo0qi8"]
+
+[ext_resource type="PackedScene" uid="uid://bk7e1pep2aiqg" path="res://Scenes/jumpking/ant.tscn" id="1_iptl5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru14t"]
+size = Vector2(778.5, 296)
+
+[sub_resource type="BoxMesh" id="BoxMesh_upou4"]
+size = Vector3(20, 20, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xsvcu"]
+
+[node name="Jumpking" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_iptl5")]
+position = Vector2(504, 235)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(163, 47)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(221.75, 793)
+shape = SubResource("RectangleShape2D_ru14t")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+position = Vector2(360, 729)
+scale = Vector2(25.15, 8.25)
+mesh = SubResource("BoxMesh_upou4")
+texture = SubResource("PlaceholderTexture2D_xsvcu")
