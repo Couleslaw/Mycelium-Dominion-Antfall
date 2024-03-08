@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxmkh55r4ifsk"]
+
+[ext_resource type="Script" path="res://Scenes/strilecka/shooter_logic.gd" id="1_07sdr"]
+[ext_resource type="PackedScene" uid="uid://cbpra8x42575m" path="res://Scenes/strilecka/ant-with-fungi/player.tscn" id="1_f8v21"]
+[ext_resource type="PackedScene" uid="uid://r1r5i5r38saw" path="res://Scenes/strilecka/bullet/player_bullet.tscn" id="2_3ays5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_66c36"]
+
+[node name="strilecka" type="Node2D"]
+script = ExtResource("1_07sdr")
+bullet_scene = ExtResource("2_3ays5")
+
+[node name="Player" parent="." instance=ExtResource("1_f8v21")]
+position = Vector2(937, 952)
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(935, 1024)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="floor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+shape = SubResource("WorldBoundaryShape2D_66c36")
+
+[node name="ceiling" type="StaticBody2D" parent="."]
+position = Vector2(960, 79)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ceiling"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling"]
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_66c36")
+
+[connection signal="player_shoot" from="Player" to="." method="_on_player_shoot"]
