@@ -5,8 +5,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgmww"]
 size = Vector2(1, 1)
 
-[node name="Sprite2D" type="Sprite2D"]
-scale = Vector2(100, 20)
+[node name="platform" type="Sprite2D"]
+scale = Vector2(150, 35)
 texture = SubResource("PlaceholderTexture2D_ph7ac")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

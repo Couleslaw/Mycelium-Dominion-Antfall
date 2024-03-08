@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://cex4l38gguvn7"]
+
+[ext_resource type="PackedScene" uid="uid://2ux78gphwwy7" path="res://Scenes/jumpking/platforma.tscn" id="1_yi8su"]
+[ext_resource type="PackedScene" uid="uid://bxsjdmp33muos" path="res://Scenes/jumpking/jumper.tscn" id="2_aqq6f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru14t"]
+size = Vector2(2127, 296)
+
+[sub_resource type="BoxMesh" id="BoxMesh_upou4"]
+size = Vector3(20, 20, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1xhec"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s4h0y"]
+normal = Vector2(1, 0)
+distance = -153.0
+
+[node name="level" type="StaticBody2D"]
+position = Vector2(153, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-167, 149)
+shape = SubResource("RectangleShape2D_ru14t")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CollisionShape2D"]
+position = Vector2(48, -75.25)
+scale = Vector2(98.6, 7.425)
+mesh = SubResource("BoxMesh_upou4")
+texture = SubResource("PlaceholderTexture2D_1xhec")
+
+[node name="Border" type="CollisionShape2D" parent="."]
+position = Vector2(-951, 58)
+shape = SubResource("WorldBoundaryShape2D_s4h0y")
+
+[node name="platform" parent="." instance=ExtResource("1_yi8su")]
+position = Vector2(-356, -379.5)
+
+[node name="jumper" parent="." instance=ExtResource("2_aqq6f")]
+position = Vector2(-85, -23)
+
+[node name="platform2" parent="." instance=ExtResource("1_yi8su")]
+position = Vector2(-505, -379.5)
+
+[node name="platform3" parent="." instance=ExtResource("1_yi8su")]
+position = Vector2(-648, -472)
+
+[node name="platform4" parent="." instance=ExtResource("1_yi8su")]
+position = Vector2(-395, -560)
+
+[node name="platform5" parent="." instance=ExtResource("1_yi8su")]
+position = Vector2(-273, -560)
+
+[node name="platform6" parent="." instance=ExtResource("1_yi8su")]
+position = Vector2(-57, -659)
+
+[node name="platform7" parent="." instance=ExtResource("1_yi8su")]
+position = Vector2(85, -731)
+
+[node name="jumper2" parent="." instance=ExtResource("2_aqq6f")]
+position = Vector2(124, -772)
+
+[node name="platform8" parent="." instance=ExtResource("1_yi8su")]
+position = Vector2(653, -1129)

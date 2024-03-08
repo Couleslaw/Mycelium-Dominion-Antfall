@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -500.0
 @onready var sprite = $AnimatedSprite2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -35,4 +35,4 @@ func _physics_process(delta):
 	move_and_slide()
 
 func catapult():
-	velocity.y = JUMP_VELOCITY*3
+	velocity.y = JUMP_VELOCITY*2
