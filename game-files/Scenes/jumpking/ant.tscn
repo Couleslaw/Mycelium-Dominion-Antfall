@@ -17,7 +17,7 @@ animations = [{
 "speed": 4.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_xfgj3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -29,6 +29,6 @@ shape = SubResource("RectangleShape2D_qo47r")
 position = Vector2(0.999999, -0.999999)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_mre8q")
-frame_progress = 0.0536914
+frame_progress = 0.267051
 
 [node name="Camera2D" type="Camera2D" parent="."]

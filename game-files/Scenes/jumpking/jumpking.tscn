@@ -1,29 +1,48 @@
-[gd_scene load_steps=5 format=3 uid="uid://3hglaqyo0qi8"]
+[gd_scene load_steps=9 format=3 uid="uid://3hglaqyo0qi8"]
 
+[ext_resource type="Script" path="res://Scenes/jumpking/jumpking.gd" id="1_bsgj3"]
 [ext_resource type="PackedScene" uid="uid://bk7e1pep2aiqg" path="res://Scenes/jumpking/ant.tscn" id="1_iptl5"]
+[ext_resource type="PackedScene" uid="uid://2ux78gphwwy7" path="res://Scenes/jumpking/platforma.tscn" id="3_3mrt7"]
+[ext_resource type="PackedScene" uid="uid://bxsjdmp33muos" path="res://Scenes/jumpking/jumper.tscn" id="4_8hm4c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ru14t"]
-size = Vector2(778.5, 296)
+size = Vector2(2127, 296)
 
 [sub_resource type="BoxMesh" id="BoxMesh_upou4"]
 size = Vector3(20, 20, 1)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xsvcu"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1xhec"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s4h0y"]
+normal = Vector2(1, 0)
+distance = -153.0
 
 [node name="Jumpking" type="Node2D"]
+script = ExtResource("1_bsgj3")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_iptl5")]
-position = Vector2(504, 235)
+[node name="Player" parent="." instance=ExtResource("1_iptl5")]
+position = Vector2(10, -2)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(163, 47)
+position = Vector2(153, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(221.75, 793)
+position = Vector2(-167, 149)
 shape = SubResource("RectangleShape2D_ru14t")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
-position = Vector2(360, 729)
-scale = Vector2(25.15, 8.25)
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2(48, -75.25)
+scale = Vector2(98.6, 7.425)
 mesh = SubResource("BoxMesh_upou4")
-texture = SubResource("PlaceholderTexture2D_xsvcu")
+texture = SubResource("PlaceholderTexture2D_1xhec")
+
+[node name="Border" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-951, 58)
+shape = SubResource("WorldBoundaryShape2D_s4h0y")
+
+[node name="Sprite2D" parent="StaticBody2D" instance=ExtResource("3_3mrt7")]
+position = Vector2(147, 22)
+scale = Vector2(392, 123.5)
+
+[node name="jumper" parent="StaticBody2D" instance=ExtResource("4_8hm4c")]
+position = Vector2(155, -64)
