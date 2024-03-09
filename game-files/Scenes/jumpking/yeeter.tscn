@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dijebbyb4ge3k"]
+
+[ext_resource type="Script" path="res://Scenes/jumpking/yeeter.gd" id="1_u242e"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2gaxl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q32ol"]
+size = Vector2(1, 1)
+
+[node name="Yeeter" type="Sprite2D"]
+position = Vector2(0.5, 1)
+scale = Vector2(37, 32)
+texture = SubResource("PlaceholderTexture2D_2gaxl")
+script = ExtResource("1_u242e")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.98023e-08, 2.98023e-08)
+shape = SubResource("RectangleShape2D_q32ol")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

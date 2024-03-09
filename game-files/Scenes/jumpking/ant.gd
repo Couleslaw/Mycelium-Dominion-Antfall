@@ -24,18 +24,31 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
-		velocity.x = direction * SPEED
 		if direction < 0:
 			sprite.set_flip_h(true)
 		else:
 			sprite.set_flip_h(false)
+		
+		if not is_on_floor():
+			velocity.x = move_toward(velocity.x, direction*SPEED, SPEED/30) 
+		else:
+			velocity.x = direction * SPEED
 			
 		$AnimatedSprite2D.play("default")
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		var slow_down = SPEED
+		if not is_on_floor():
+			slow_down = 3.5
+		velocity.x = move_toward(velocity.x, 0, slow_down)
 		$AnimatedSprite2D.stop()
 
 	move_and_slide()
 
 func catapult():
-	velocity.y = JUMP_VELOCITY*2
+	if velocity.y < 1000:
+		velocity.y = JUMP_VELOCITY*2
+	else:
+		velocity.y = -1650
+	
+func yeet():
+	velocity.x = 1500
