@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://6rocbwmo1xhc"]
+
+[ext_resource type="Texture2D" uid="uid://d4jsjmvtnelk5" path="res://Scenes/bludiste/Assets/Slime_Block.png" id="1_312bq"]
+[ext_resource type="PackedScene" uid="uid://cw1bueah3jfqe" path="res://Scenes/bludiste/Scenes/player.tscn" id="2_knuxb"]
+[ext_resource type="PackedScene" uid="uid://cllmhdh1jq63x" path="res://Scenes/bludiste/Scenes/enemy.tscn" id="3_gbkap"]
+[ext_resource type="Script" path="res://Scenes/bludiste/Scripts/EnemyFollow.gd" id="3_vqb0j"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y70f2"]
+texture = ExtResource("1_312bq")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_lx66g"]
+occlusion_layer_0/light_mask = 1
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_y70f2")
+
+[sub_resource type="Curve2D" id="Curve2D_ctri2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -72, -24, 0, 0, 0, 0, 72, -24, 0, 0, 0, 0, -72, -24)
+}
+point_count = 3
+
+[node name="Level1" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [-80.0]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_lx66g")
+format = 2
+layer_0/tile_data = PackedInt32Array(2359328, 2, 0, 2424864, 2, 0, 2490400, 2, 0, 2555936, 2, 0, 2621472, 2, 0, 2621473, 2, 0, 2621474, 2, 0, 2621475, 2, 0, 2621476, 2, 0, 2621477, 2, 0, 2621478, 2, 0, 2621479, 2, 0, 2555943, 2, 0, 2490407, 2, 0, 2424871, 2, 0, 2359335, 2, 0, 2293799, 2, 0, 2293798, 2, 0, 2293797, 2, 0, 2293796, 2, 0, 2293795, 2, 0, 2293794, 2, 0, 2293793, 2, 0, 2293792, 2, 0, 2359330, 2, 0, 2424866, 2, 0, 2490403, 2, 0, 2490402, 2, 0, 2359332, 2, 0, 2359333, 2, 0, 2424869, 2, 0, 196605, 2, 0, 196606, 2, 0, 196607, 2, 0, 131072, 2, 0, 131073, 2, 0, 131074, 2, 0, 131075, 2, 0, 131076, 2, 0, 131077, 2, 0, 65541, 2, 0, 5, 2, 0, -65531, 2, 0, -131067, 2, 0, -196603, 2, 0, -196604, 2, 0, -196605, 2, 0, -196606, 2, 0, -196607, 2, 0, -196608, 2, 0, -131073, 2, 0, -131074, 2, 0, -131075, 2, 0, -131076, 2, 0, -131077, 2, 0, -131078, 2, 0, -65542, 2, 0, -6, 2, 0, 65530, 2, 0, 131066, 2, 0, 196602, 2, 0, 196603, 2, 0, 196604, 2, 0, -3, 2, 0, -5, 2, 0, -4, 2, 0, 65533, 2, 0, -65535, 2, 0, -65534, 2, 0, 2, 2, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_knuxb")]
+
+[node name="StartPosition" type="Marker2D" parent="Player"]
+position = Vector2(-72, 24)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(10, 10)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_ctri2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-72, -24)
+rotates = false
+script = ExtResource("3_vqb0j")
+
+[node name="Enemy" parent="Path2D/PathFollow2D" instance=ExtResource("3_gbkap")]
+position = Vector2(2.08165e-12, 2.08165e-12)

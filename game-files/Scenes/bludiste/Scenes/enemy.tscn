@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cllmhdh1jq63x"]
+
+[ext_resource type="Texture2D" uid="uid://2fd55tu1k0bv" path="res://Scenes/bludiste/Assets/beetle.png" id="1_76e1h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssygp"]
+size = Vector2(16, 16)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ssygp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_76e1h")
