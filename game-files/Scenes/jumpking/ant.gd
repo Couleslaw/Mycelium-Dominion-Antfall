@@ -3,6 +3,14 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
+const CATAPULT_VELOCITY = -1000
+const CATAPULT_HIGH_LIMIT = 1000
+const CATAPULT_HIGH_VELOCITY = -1650
+const CATAPULT_LIMIT = 1000
+const FLIGHT_SLOW_DOWN = 3.5
+const FLIGHT_MOVEMENT_DENOMINATOR = 30
+const FLIGHT_DIRECTION_LIMIT = 400
+const YEET_VELOCITY = 1500
 @onready var sprite = $AnimatedSprite2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -29,24 +37,23 @@ func _physics_process(delta):
 		
 		if is_on_floor():
 			velocity.x = direction * SPEED
-		elif not (sign(velocity.x) == sign(direction) and abs(velocity.x) > 400):
-			velocity.x = move_toward(velocity.x, direction*SPEED, SPEED/30) 
+		elif not (sign(velocity.x) == sign(direction) and abs(velocity.x) > FLIGHT_DIRECTION_LIMIT):
+			velocity.x = move_toward(velocity.x, direction*SPEED, SPEED/FLIGHT_MOVEMENT_DENOMINATOR) 
 			
 		$AnimatedSprite2D.play("default")
 	else:
-		var slow_down = SPEED
-		if not is_on_floor():
-			slow_down = 3.5
+		var slow_down = SPEED if is_on_floor() else FLIGHT_SLOW_DOWN
+		
 		velocity.x = move_toward(velocity.x, 0, slow_down)
 		$AnimatedSprite2D.stop()
 
 	move_and_slide()
 
 func catapult():
-	if velocity.y < 1000:
-		velocity.y = JUMP_VELOCITY*2
+	if velocity.y < CATAPULT_HIGH_LIMIT:
+		velocity.y = CATAPULT_VELOCITY
 	else:
-		velocity.y = -1650
+		velocity.y = CATAPULT_HIGH_VELOCITY
 	
 func yeet(dir):
-	velocity.x = 1500 * dir
+	velocity.x = YEET_VELOCITY * dir
