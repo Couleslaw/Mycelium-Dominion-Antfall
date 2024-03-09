@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://bu1uesgpppw3j"]
+
+[ext_resource type="Script" path="res://Scenes/bludiste/Scripts/enemy.gd" id="1_qepac"]
+[ext_resource type="Texture2D" uid="uid://be6v3iakwr5ou" path="res://Scenes/bludiste/NewAssets/ladybug_top_1.png" id="2_lvh7t"]
+[ext_resource type="Texture2D" uid="uid://ec6g25uncmti" path="res://Scenes/bludiste/NewAssets/ladybug_top_2.png" id="3_jb524"]
+[ext_resource type="Texture2D" uid="uid://b4o7jxlxkcph3" path="res://Scenes/bludiste/NewAssets/ladybug_top_3.png" id="4_px8dp"]
+[ext_resource type="Texture2D" uid="uid://p4de0pagj2is" path="res://Scenes/bludiste/NewAssets/ladybug_top_4.png" id="5_o5hhe"]
+[ext_resource type="Texture2D" uid="uid://bsitmkyfyfve4" path="res://Scenes/bludiste/NewAssets/light.webp" id="6_hg5m1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ybk66"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lvh7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jb524")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_px8dp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o5hhe")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grhsd"]
+radius = 54.88
+height = 143.52
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_qepac")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ybk66")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_grhsd")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.9
+shadow_enabled = true
+shadow_filter = 2
+texture = ExtResource("6_hg5m1")
+texture_scale = 3.88
