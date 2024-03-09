@@ -1,33 +1,70 @@
 extends CharacterBody2D
 
 var speed = 350
-var health = 5
 var screen_size
-signal player_shoot
+signal player_hit
+
+var sprite
+@export var player_bullet_scene : PackedScene
+var player_bullet_speed = 1000
+
+const TAKE_DAMAGE_ANIMATION_DURATION = 0.1
+var playing_take_damage_animation = false
+
+const SHOOT_ANIMATION_DURATION = 0.1
+var playing_shoot_animation = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	sprite = $AnimatedSprite2D
 	
 func shoot_bullet():
-	player_shoot.emit()
+	var bullet = player_bullet_scene.instantiate()
+	var shift = $ShootMarker.position
+	shift.x *= (-1 if sprite.flip_h else 1)
+	bullet.global_position = position + shift
+	bullet.linear_velocity = Vector2.UP * player_bullet_speed
+	
+	sprite.play("shoot")
+	$ShootAnimationTimer.start(SHOOT_ANIMATION_DURATION)
+	playing_shoot_animation = true
+	
+	get_parent().add_child(bullet)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_left"):
+		sprite.flip_h = true
 		velocity = Vector2.LEFT
 	if Input.is_action_pressed("move_right"):
+		sprite.flip_h = false
 		velocity = Vector2.RIGHT
-	position += velocity * speed * delta
 	
-	var margin = screen_size / 8
+	# play walk animation
+	if not (playing_take_damage_animation or playing_shoot_animation):
+		sprite.play("walk")
+	if velocity.length() == 0:
+		sprite.stop()
+		
+	position += velocity * speed * delta
+	var margin = Vector2(screen_size.x/10, 0)
 	position = position.clamp(margin, screen_size-margin)
 	
 	if Input.is_action_just_pressed("shoot"):
 		shoot_bullet()
 
 func get_hit():
-	health -= 1
-	if health == 0:
-		hide()
+	sprite.play("take_damage")
+	playing_take_damage_animation = true
+	$TakeDmgAnimationTimer.start(TAKE_DAMAGE_ANIMATION_DURATION)
+	player_hit.emit()
+
+
+func _on_take_dmg_animation_timer_timeout():
+	playing_take_damage_animation = false
+
+
+func _on_shoot_animation_timer_timeout():
+	playing_shoot_animation = false

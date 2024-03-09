@@ -1,20 +1,71 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbpra8x42575m"]
+[gd_scene load_steps=10 format=3 uid="uid://cbpra8x42575m"]
 
-[ext_resource type="Texture2D" uid="uid://dok2d62a1xat4" path="res://Assets/sprites/funny_houba.png" id="1_got2x"]
 [ext_resource type="Script" path="res://Scenes/strilecka/ant-with-fungi/player.gd" id="1_vqt6o"]
+[ext_resource type="PackedScene" uid="uid://r1r5i5r38saw" path="res://Scenes/strilecka/bullet/player_bullet.tscn" id="2_2jcex"]
+[ext_resource type="Texture2D" uid="uid://dlbi4bo7q8a40" path="res://Assets/sprites/strilecka/ant_infected_1.png" id="2_tmiuw"]
+[ext_resource type="Texture2D" uid="uid://cmynfia0uh24g" path="res://Assets/sprites/strilecka/ant_infected_shoot_side_1.png" id="3_qpmbl"]
+[ext_resource type="Texture2D" uid="uid://ufn48xinxfhp" path="res://Assets/sprites/strilecka/ant_infected_2.png" id="4_5a2xp"]
+[ext_resource type="Texture2D" uid="uid://bk6j1sgnbg8ki" path="res://Assets/sprites/strilecka/ant_infected_damage_1_side_1.png" id="4_xduld"]
+[ext_resource type="Texture2D" uid="uid://bwgo0a75ypl43" path="res://Assets/sprites/strilecka/ant_infected_3.png" id="5_g21pj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p2p8w"]
-size = Vector2(104, 102)
+size = Vector2(170, 102)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_40dnd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qpmbl")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xduld")
+}],
+"loop": false,
+"name": &"take_damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tmiuw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5a2xp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g21pj")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 9.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(978, 778)
+z_index = 2
 script = ExtResource("1_vqt6o")
+player_bullet_scene = ExtResource("2_2jcex")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -5)
+position = Vector2(7, -5)
 shape = SubResource("RectangleShape2D_p2p8w")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_got2x")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_40dnd")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="ShootMarker" type="Marker2D" parent="."]
+position = Vector2(63, -94)
+
+[node name="TakeDmgAnimationTimer" type="Timer" parent="."]
+
+[node name="ShootAnimationTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="TakeDmgAnimationTimer" to="." method="_on_take_dmg_animation_timer_timeout"]
+[connection signal="timeout" from="ShootAnimationTimer" to="." method="_on_shoot_animation_timer_timeout"]

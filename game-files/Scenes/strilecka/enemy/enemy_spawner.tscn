@@ -7,12 +7,6 @@
 script = ExtResource("1_juqy6")
 enemy_scene = ExtResource("2_egabg")
 
-[node name="LeftSpawn" type="Marker2D" parent="."]
-position = Vector2(-105, 108)
-
-[node name="RightSpawn" type="Marker2D" parent="."]
-position = Vector2(2047, 114)
-
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
 

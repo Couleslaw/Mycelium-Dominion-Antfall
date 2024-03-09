@@ -2,70 +2,67 @@
 
 [ext_resource type="Script" path="res://Scenes/strilecka/shooter_logic.gd" id="1_07sdr"]
 [ext_resource type="PackedScene" uid="uid://cbpra8x42575m" path="res://Scenes/strilecka/ant-with-fungi/player.tscn" id="1_f8v21"]
-[ext_resource type="PackedScene" uid="uid://r1r5i5r38saw" path="res://Scenes/strilecka/bullet/player_bullet.tscn" id="2_3ays5"]
-[ext_resource type="PackedScene" uid="uid://bo432okauno0m" path="res://Scenes/strilecka/enemy/enemy.tscn" id="5_pc885"]
 [ext_resource type="PackedScene" uid="uid://gefdern1s4fy" path="res://Scenes/strilecka/enemy/enemy_spawner.tscn" id="5_stt2s"]
 [ext_resource type="FontFile" uid="uid://gnkytdm8m1b" path="res://Assets/fonts/Ubuntu/Ubuntu-Bold.ttf" id="6_poh8c"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_66c36"]
+[ext_resource type="Texture2D" uid="uid://dbx3vhmbp4j4a" path="res://Assets/sprites/strilecka/cave_background.png" id="6_sdiyf"]
+[ext_resource type="Texture2D" uid="uid://bgio8w66jmnyf" path="res://Assets/sprites/strilecka/cave_foreground.png" id="7_de5ay"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ip5nc"]
 font = ExtResource("6_poh8c")
 font_size = 50
-outline_size = 7
+outline_size = 10
 outline_color = Color(0.137255, 0.505882, 0.960784, 1)
 shadow_size = 5
 shadow_color = Color(0, 0.615686, 1, 0.454902)
 shadow_offset = Vector2(3, 2)
 
+[sub_resource type="LabelSettings" id="LabelSettings_7s3ic"]
+font = ExtResource("6_poh8c")
+font_size = 50
+outline_size = 10
+outline_color = Color(0.831373, 0.168627, 0.203922, 1)
+shadow_size = 5
+shadow_color = Color(0.858824, 0.305882, 0.239216, 0.454902)
+shadow_offset = Vector2(3, 2)
+
 [node name="strilecka" type="Node2D"]
 script = ExtResource("1_07sdr")
-player_bullet_scene = ExtResource("2_3ays5")
-
-[node name="floor" type="StaticBody2D" parent="."]
-position = Vector2(935, 1024)
-collision_layer = 3
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="floor"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
-shape = SubResource("WorldBoundaryShape2D_66c36")
-
-[node name="ceiling" type="StaticBody2D" parent="."]
-position = Vector2(960, 79)
-collision_layer = 2
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="ceiling"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ceiling"]
-rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_66c36")
 
 [node name="Player" parent="." instance=ExtResource("1_f8v21")]
-position = Vector2(937, 952)
-
-[node name="Enemy" parent="." instance=ExtResource("5_pc885")]
-position = Vector2(1509, 189)
-
-[node name="Enemy2" parent="." instance=ExtResource("5_pc885")]
-position = Vector2(308, 146)
-
-[node name="Enemy3" parent="." instance=ExtResource("5_pc885")]
-position = Vector2(665, 154)
-
-[node name="Enemy4" parent="." instance=ExtResource("5_pc885")]
-position = Vector2(993, 156)
+position = Vector2(850, 983)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_stt2s")]
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = 71.0
-offset_top = 985.0
-offset_right = 214.0
-offset_bottom = 1042.0
+z_index = 10
+offset_left = 26.0
+offset_top = 19.0
+offset_right = 169.0
+offset_bottom = 76.0
 text = "12/20"
 label_settings = SubResource("LabelSettings_ip5nc")
 
-[connection signal="player_shoot" from="Player" to="." method="_on_player_shoot"]
+[node name="PlayerHealthLabel" type="Label" parent="."]
+z_index = 10
+offset_left = 1805.0
+offset_top = 19.0
+offset_right = 1883.0
+offset_bottom = 76.0
+text = "4/5"
+label_settings = SubResource("LabelSettings_7s3ic")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_sdiyf")
+
+[node name="TextureRect2" type="TextureRect" parent="Background"]
+z_index = 3
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_de5ay")
+
+[connection signal="player_hit" from="Player" to="." method="_on_player_player_hit"]
+[connection signal="spawned_enemy" from="EnemySpawner" to="." method="_on_enemy_spawner_spawned_enemy"]

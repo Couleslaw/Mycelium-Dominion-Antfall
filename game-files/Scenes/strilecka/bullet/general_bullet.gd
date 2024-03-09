@@ -5,14 +5,17 @@ extends RigidBody2D
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var collision_info = move_and_collide(linear_velocity * delta)
 	if collision_info != null:
-		if collision_info.get_collider_velocity() != Vector2.ZERO:
-			collision_info.get_collider().get_hit()
+		var name = collision_info.get_collider().name
+		collision_info.get_collider().get_hit()
 		queue_free()
-		
+
 func get_hit():
 	pass 
+
+
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	queue_free()

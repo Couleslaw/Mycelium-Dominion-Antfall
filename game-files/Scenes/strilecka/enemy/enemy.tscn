@@ -1,13 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo432okauno0m"]
+[gd_scene load_steps=9 format=3 uid="uid://bo432okauno0m"]
 
 [ext_resource type="Script" path="res://Scenes/strilecka/enemy/enemy.gd" id="1_b1ub2"]
-[ext_resource type="Texture2D" uid="uid://by3hqoxwwoe2n" path="res://Assets/sprites/ant.png" id="1_t7p50"]
 [ext_resource type="PackedScene" uid="uid://d1e6855eglyrv" path="res://Scenes/strilecka/bullet/enemy_bullet.tscn" id="2_74vgo"]
+[ext_resource type="Texture2D" uid="uid://cj8y42hrex42x" path="res://Assets/sprites/strilecka/ladybug_damage_2_side_1.png" id="3_36bv3"]
+[ext_resource type="Texture2D" uid="uid://cit57hp7cr7pr" path="res://Assets/sprites/strilecka/ladybug_1.png" id="3_lleb7"]
+[ext_resource type="Texture2D" uid="uid://cakgirnlm5yen" path="res://Assets/sprites/strilecka/ladybug_2.png" id="5_p8ylh"]
+[ext_resource type="Texture2D" uid="uid://cks6pyrl4pall" path="res://Assets/sprites/strilecka/ladybug_3.png" id="6_a0if8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kp6kc"]
 size = Vector2(93, 74)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_mydmo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_36bv3")
+}],
+"loop": false,
+"name": &"take_damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lleb7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p8ylh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a0if8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 9.0
+}]
+
 [node name="Enemy" type="CharacterBody2D"]
+z_index = 2
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_b1ub2")
@@ -18,14 +47,20 @@ metadata/_edit_group_ = true
 position = Vector2(9.5, 16)
 shape = SubResource("RectangleShape2D_kp6kc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_t7p50")
+sprite_frames = SubResource("SpriteFrames_mydmo")
+animation = &"walk"
+flip_v = true
 
 [node name="ChangeDirTimer" type="Timer" parent="."]
 
 [node name="ShootTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="TakeDmgAnimationTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="ChangeDirTimer" to="." method="_on_change_dir_timer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="TakeDmgAnimationTimer" to="." method="_on_take_dmg_animation_timer_timeout"]
