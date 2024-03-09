@@ -39,4 +39,4 @@ scale = Vector2(0.106738, 0.106738)
 sprite_frames = SubResource("SpriteFrames_mre8q")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.8, 1.8)
