@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://eo5am77gogy2"]
+
+[ext_resource type="Script" path="res://Scenes/mainmenu/levelmap.gd" id="1_33y4x"]
+[ext_resource type="Texture2D" uid="uid://drso30ls38bk6" path="res://Assets/sprites/main_map_placeholder.png" id="1_u467c"]
+[ext_resource type="Texture2D" uid="uid://bo1e7jmnqbc2n" path="res://Assets/sprites/mainmenu/mushroom_placeholder.png" id="2_8th6p"]
+[ext_resource type="BitMap" uid="uid://cls8ml7inggip" path="res://Assets/sprites/mainmenu/mushroom_placeholder_bm.png" id="3_dqp3p"]
+
+[node name="Levelmap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_33y4x")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_u467c")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 715.0
+offset_right = 1962.0
+offset_bottom = 2364.0
+scale = Vector2(0.1, 0.1)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_8th6p")
+texture_click_mask = ExtResource("3_dqp3p")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://cw1bueah3jfqe"]
+
+[ext_resource type="Script" path="res://Scenes/bludiste/Scripts/CharacterMovement.gd" id="1_uo288"]
+[ext_resource type="Texture2D" uid="uid://b0aedtjbtqo7p" path="res://Scenes/bludiste/NewAssets/ant_infected_top_1.png" id="2_p4dap"]
+[ext_resource type="Texture2D" uid="uid://bqk3b8o2argkh" path="res://Scenes/bludiste/NewAssets/ant_infected_top_2.png" id="3_md63n"]
+[ext_resource type="Texture2D" uid="uid://cduxeswo81smr" path="res://Scenes/bludiste/NewAssets/ant_infected_top_3.png" id="4_c236u"]
+[ext_resource type="Texture2D" uid="uid://bc2jbtwe1dom5" path="res://Scenes/bludiste/NewAssets/ant_infected_top_4.png" id="5_mo1e4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4uxt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p4dap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_md63n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c236u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mo1e4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0srt2"]
+radius = 85.3333
+height = 170.667
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2d5u"]
+radius = 84.2105
+height = 168.421
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_uo288")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c4uxt")
+animation = &"walk"
+frame_progress = 0.641713
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+scale = Vector2(0.75, 0.75)
+shape = SubResource("CapsuleShape2D_0srt2")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 16)
+scale = Vector2(0.76, 0.76)
+shape = SubResource("CapsuleShape2D_h2d5u")
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
