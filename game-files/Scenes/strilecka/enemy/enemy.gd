@@ -1,28 +1,35 @@
 extends CharacterBody2D
 
-const min_speed = 20
-const max_speed = 70
+const MIN_SPEED = 50
+const MAX_SPEED = 200
 
-const min_change_dir_time = 3
-const max_change_dir_time = 7
+const MIN_CHANGE_DIR_TIME = 2
+const MAX_CHANGE_DIR_TIME = 6
 
-const min_shoot_cooldown = 1
-const max_shoot_cooldown = 3
+const MIN_SHOOT_COOLDOWN = 1
+const MAX_SHOOT_COOLDOWN = 3
 
 const FLY_AWAY_SPEED = 400
 const FLY_AWAY_ROTATION_SPEED = 4*PI
 
 var health = 1
+var screen_size
 
 @export var enemy_bullet_scene : PackedScene
 
 var speed
+var change_dir_timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	speed = randi_range(min_speed, max_speed)
-	$ChangeDirTimer.wait_time = randf_range(min_change_dir_time, max_change_dir_time)
-
+	speed = randi_range(MIN_SPEED, MAX_SPEED)
+	screen_size = get_viewport_rect().size
+	if position.x > screen_size.x / 2:
+		speed *= -1
+	change_dir_timer = $ChangeDirTimer
+	change_dir_timer.wait_time = randf_range(4, 9)
+	change_dir_timer.start()
+	
 func shoot_bullet():
 	var bullet = enemy_bullet_scene.instantiate()
 	bullet.global_position = position
@@ -41,7 +48,7 @@ func _process(delta):
 
 
 func _on_change_dir_timer_timeout():
-	$ChangeDirTimer.wait_time = randf_range(min_change_dir_time, max_change_dir_time)
+	change_dir_timer.wait_time = randf_range(MIN_CHANGE_DIR_TIME, MAX_CHANGE_DIR_TIME)
 	speed *= -1
 
 var flying_away = false
@@ -54,5 +61,5 @@ func get_hit():
 
 func _on_shoot_timer_timeout():
 	if flying_away: return
-	$ShootTimer.wait_time = randf_range(min_shoot_cooldown, max_shoot_cooldown)
+	$ShootTimer.wait_time = randf_range(MIN_SHOOT_COOLDOWN, MAX_SHOOT_COOLDOWN)
 	shoot_bullet()

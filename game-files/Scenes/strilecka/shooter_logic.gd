@@ -1,10 +1,8 @@
 extends Node2D
 
 @export var player_bullet_scene : PackedScene
-@export var enemy_bullet_scene : PackedScene
 
 var player_bullet_speed = 1000
-var enemy_bullet_speed = 1000
 
 func _on_player_shoot():
 	var bullet = player_bullet_scene.instantiate() 
