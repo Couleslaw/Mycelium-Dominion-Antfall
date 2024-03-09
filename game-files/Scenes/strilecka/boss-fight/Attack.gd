@@ -1,6 +1,5 @@
 extends Area2D
 
-signal player_hit_by_boss
 
 func enable_atack(duration):
 	$AnimatedSprite2D.visible = true

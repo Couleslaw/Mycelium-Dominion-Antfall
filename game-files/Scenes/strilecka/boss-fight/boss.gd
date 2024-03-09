@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+signal boss_attacked(duration)
 signal boss_hit(boss)
 signal player_hit_by_boss
 
@@ -56,6 +57,7 @@ func boss_fight():
 		sprite.play("idle")
 		var attack_duration = randf_range(MIN_ATTACK_TIME, MAX_ATTACK_TIME)
 		if dead: break
+		boss_attacked.emit(attack_duration)
 		$Attack.enable_atack(attack_duration)
 		await get_tree().create_timer(attack_duration).timeout 
 		await get_tree().create_timer(randf_range(MIN_IDLE_TIME, MAX_IDLE_TIME)).timeout 

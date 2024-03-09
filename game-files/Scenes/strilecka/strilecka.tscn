@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxmkh55r4ifsk"]
+[gd_scene load_steps=18 format=3 uid="uid://cxmkh55r4ifsk"]
 
 [ext_resource type="Script" path="res://Scenes/strilecka/shooter_logic.gd" id="1_07sdr"]
 [ext_resource type="PackedScene" uid="uid://cbpra8x42575m" path="res://Scenes/strilecka/player/player.tscn" id="1_f8v21"]
@@ -9,9 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://bubulwwyf536g" path="res://Assets/sprites/strilecka/cave_background.png" id="6_sdiyf"]
 [ext_resource type="Texture2D" uid="uid://c7thwxwfq15k1" path="res://Assets/sprites/strilecka/cave_rocks_back.png" id="7_1l7f3"]
 [ext_resource type="Texture2D" uid="uid://bgio8w66jmnyf" path="res://Assets/sprites/strilecka/cave_foreground.png" id="7_de5ay"]
-[ext_resource type="Texture2D" uid="uid://hdbtdqo3528c" path="res://Assets/sprites/strilecka/MaBPGU.png" id="10_emwuf"]
-[ext_resource type="Texture2D" uid="uid://cda7eeocl3p4x" path="res://Assets/sprites/strilecka/VwUCAe.png" id="11_co7su"]
-[ext_resource type="Script" path="res://Scenes/strilecka/TextureProgressBar.gd" id="12_i2064"]
+[ext_resource type="Texture2D" uid="uid://l670heq4b0kn" path="res://Assets/sprites/strilecka/boss_healthbar.png" id="10_dpmlx"]
+[ext_resource type="Script" path="res://Scenes/strilecka/PlayerHealthBar.gd" id="12_gajm3"]
+[ext_resource type="Script" path="res://Scenes/strilecka/BossHealthBar.gd" id="12_i2064"]
+[ext_resource type="Texture2D" uid="uid://dmg17rfhfek6w" path="res://Assets/sprites/strilecka/player_health_bar.png" id="12_pvm0v"]
+[ext_resource type="Script" path="res://Scenes/strilecka/Camera2D.gd" id="12_s2tgq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ip5nc"]
 font = ExtResource("6_poh8c")
@@ -75,6 +77,7 @@ texture = ExtResource("5_7b7jg")
 [node name="Labels" type="Node" parent="."]
 
 [node name="ScoreLabel" type="Label" parent="Labels"]
+visible = false
 z_index = 10
 offset_left = 26.0
 offset_top = 19.0
@@ -84,6 +87,7 @@ text = "12/20"
 label_settings = SubResource("LabelSettings_ip5nc")
 
 [node name="PlayerHealthLabel" type="Label" parent="Labels"]
+visible = false
 z_index = 10
 offset_left = 1805.0
 offset_top = 19.0
@@ -104,18 +108,40 @@ label_settings = SubResource("LabelSettings_k5w7r")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("game_logic")]
+[node name="BossHealthBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("game_logic")]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -173.5
-offset_right = 173.5
-offset_bottom = 54.0
+offset_left = -390.0
+offset_top = -12.0
+offset_right = 444.0
+offset_bottom = 30.0
 grow_horizontal = 2
-texture_under = ExtResource("10_emwuf")
-texture_progress = ExtResource("11_co7su")
+value = 100.0
+texture_progress = ExtResource("10_dpmlx")
 script = ExtResource("12_i2064")
 game_logic = NodePath("../..")
+
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("game_logic")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -24.0
+offset_right = 206.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+texture_progress = ExtResource("12_pvm0v")
+script = ExtResource("12_gajm3")
+game_logic = NodePath("../..")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
+script = ExtResource("12_s2tgq")
 
 [connection signal="player_hit" from="Player" to="." method="_on_player_player_hit"]
 [connection signal="spawned_boss" from="EnemySpawner" to="." method="_on_enemy_spawner_spawned_boss"]

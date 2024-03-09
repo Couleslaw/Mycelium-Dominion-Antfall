@@ -14,7 +14,7 @@ var enemy_list = []
 
 const NUM_ENEMIES_ON_START = 5
 const MIN_SPAWN_INTERVAL = 1
-const MAX_SPAWN_INTERVAL = 3
+const MAX_SPAWN_INTERVAL = 2
 
 const BOSS_SPAWN_INTERVAL = 4
 

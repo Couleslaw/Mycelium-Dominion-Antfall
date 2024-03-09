@@ -71,7 +71,7 @@ func die():
 	$CollisionShape2D.set_deferred("disabled", true)
 	can_shoot = false
 	dead = true
-	# TODO play die animation
+	sprite.play("death")
 
 func _on_take_dmg_animation_timer_timeout():
 	playing_take_damage_animation = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbpra8x42575m"]
+[gd_scene load_steps=13 format=3 uid="uid://cbpra8x42575m"]
 
 [ext_resource type="Script" path="res://Scenes/strilecka/player/player.gd" id="1_vqt6o"]
 [ext_resource type="PackedScene" uid="uid://r1r5i5r38saw" path="res://Scenes/strilecka/bullet/player_bullet.tscn" id="2_l153n"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dajnrmnt15h1c" path="res://Assets/sprites/strilecka/ant_infected_side_1_idle.png" id="3_sl3a2"]
 [ext_resource type="Texture2D" uid="uid://bk6j1sgnbg8ki" path="res://Assets/sprites/strilecka/ant_infected_damage_1_side_1.png" id="4_xduld"]
 [ext_resource type="Texture2D" uid="uid://c74naogagccb1" path="res://Assets/sprites/strilecka/ant_infected_side_1.png" id="5_hfbt1"]
+[ext_resource type="Texture2D" uid="uid://uk1nuhj86g4l" path="res://Assets/sprites/strilecka/and_infected_side_dying_2.png" id="5_jwjcg"]
+[ext_resource type="Texture2D" uid="uid://l3dilekxpbbx" path="res://Assets/sprites/strilecka/ant_infected_dead_side_.png" id="5_t8k3g"]
 [ext_resource type="Texture2D" uid="uid://dlncl2yogs5h4" path="res://Assets/sprites/strilecka/ant_infected_side_2.png" id="6_oansm"]
 [ext_resource type="Texture2D" uid="uid://djijg66fggc08" path="res://Assets/sprites/strilecka/ant_infected_side_3.png" id="7_s2fph"]
 
@@ -14,6 +16,23 @@ size = Vector2(170, 102)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_40dnd"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sl3a2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hfbt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jwjcg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_t8k3g")
+}],
+"loop": false,
+"name": &"death",
+"speed": 1.5
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("5_hfbt1")
@@ -71,9 +90,10 @@ shape = SubResource("RectangleShape2D_p2p8w")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_40dnd")
-animation = &"idle"
+animation = &"death"
 autoplay = "walk"
-frame_progress = 0.0425831
+frame = 3
+frame_progress = 1.0
 
 [node name="ShootMarker" type="Marker2D" parent="."]
 position = Vector2(63, -94)

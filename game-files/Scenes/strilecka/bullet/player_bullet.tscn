@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://r1r5i5r38saw"]
+[gd_scene load_steps=4 format=3 uid="uid://r1r5i5r38saw"]
 
 [ext_resource type="PackedScene" uid="uid://gptj77jeuec5" path="res://Scenes/strilecka/bullet/general_bullet.tscn" id="1_snodp"]
-[ext_resource type="Texture2D" uid="uid://dbjr88cud800q" path="res://Assets/sprites/white_circle.webp" id="2_y0aga"]
+[ext_resource type="Texture2D" uid="uid://bftyc1vs3vvml" path="res://Assets/sprites/strilecka/projectile_spore.png" id="2_b0fkx"]
+[ext_resource type="Texture2D" uid="uid://ds1l6nh8j0ytp" path="res://Assets/sprites/strilecka/light.webp" id="3_qpuyr"]
 
 [node name="RigidBody2D" instance=ExtResource("1_snodp")]
 collision_layer = 2
@@ -9,5 +10,9 @@ collision_mask = 6
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_y0aga")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_b0fkx")
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="3"]
+energy = 0.2
+texture = ExtResource("3_qpuyr")
