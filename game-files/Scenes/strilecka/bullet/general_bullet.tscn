@@ -1,29 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://gptj77jeuec5"]
 
-[sub_resource type="GDScript" id="GDScript_3tc0w"]
-script/source = "extends RigidBody2D
-
-var speed = 1000
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-var direction = Vector2.UP
-
-func change_dir():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	position += direction * speed * delta
-"
+[ext_resource type="Script" path="res://Scenes/strilecka/bullet/general_bullet.gd" id="1_wcskg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_njddl"]
+radius = 13.9014
 
 [node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 3
 gravity_scale = 0.0
-script = SubResource("GDScript_3tc0w")
+script = ExtResource("1_wcskg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_njddl")

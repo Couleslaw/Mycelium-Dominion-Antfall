@@ -1,6 +1,7 @@
-extends Area2D
+extends CharacterBody2D
 
 var speed = 350
+var health = 5
 var screen_size
 signal player_shoot
 
@@ -25,3 +26,8 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("shoot"):
 		shoot_bullet()
+
+func get_hit():
+	health -= 1
+	if health == 0:
+		hide()

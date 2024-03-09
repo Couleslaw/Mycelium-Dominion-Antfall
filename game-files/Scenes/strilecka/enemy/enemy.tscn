@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bo432okauno0m"]
+
+[ext_resource type="Script" path="res://Scenes/strilecka/enemy/enemy.gd" id="1_b1ub2"]
+[ext_resource type="Texture2D" uid="uid://by3hqoxwwoe2n" path="res://Assets/sprites/ant.png" id="1_t7p50"]
+[ext_resource type="PackedScene" uid="uid://d1e6855eglyrv" path="res://Scenes/strilecka/bullet/enemy_bullet.tscn" id="2_74vgo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kp6kc"]
+size = Vector2(93, 74)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_b1ub2")
+enemy_bullet_scene = ExtResource("2_74vgo")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.5, 16)
+shape = SubResource("RectangleShape2D_kp6kc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_t7p50")
+
+[node name="ChangeDirTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ShootTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ChangeDirTimer" to="." method="_on_change_dir_timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
