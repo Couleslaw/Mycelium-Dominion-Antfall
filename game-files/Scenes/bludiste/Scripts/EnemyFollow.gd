@@ -1,6 +1,6 @@
 extends PathFollow2D
 
-@export var speed = 20
+@export var speed = 400
 
 func _process(delta):
-	set_progress(get_progress()+1)
+	set_progress(get_progress() + speed * delta)

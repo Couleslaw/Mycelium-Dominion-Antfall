@@ -1,16 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://cllmhdh1jq63x"]
+[gd_scene load_steps=8 format=3 uid="uid://cllmhdh1jq63x"]
 
-[ext_resource type="Texture2D" uid="uid://2fd55tu1k0bv" path="res://Scenes/bludiste/Assets/beetle.png" id="1_76e1h"]
+[ext_resource type="Script" path="res://Scenes/bludiste/Scripts/enemy.gd" id="1_255yv"]
+[ext_resource type="Texture2D" uid="uid://c20xfwxs3nj8i" path="res://Scenes/bludiste/NewAssets/ant_top_1.png" id="1_tbg4v"]
+[ext_resource type="Texture2D" uid="uid://ybtgcrlatof0" path="res://Scenes/bludiste/NewAssets/ant_top_2.png" id="2_pp3p7"]
+[ext_resource type="Texture2D" uid="uid://gsj6r3wqgoei" path="res://Scenes/bludiste/NewAssets/ant_top_3.png" id="3_xwi3v"]
+[ext_resource type="Texture2D" uid="uid://dlunkvnejhpro" path="res://Scenes/bludiste/NewAssets/ant_top_4.png" id="4_q1nkb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssygp"]
-size = Vector2(16, 16)
+[sub_resource type="SpriteFrames" id="SpriteFrames_2h3gu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tbg4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pp3p7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xwi3v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q1nkb")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6rey6"]
+radius = 8.0
+height = 16.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 2
 collision_mask = 2
+script = ExtResource("1_255yv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2h3gu")
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ssygp")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_76e1h")
+position = Vector2(-8, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6rey6")
