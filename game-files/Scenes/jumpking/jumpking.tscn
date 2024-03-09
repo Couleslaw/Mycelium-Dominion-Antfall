@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://3hglaqyo0qi8"]
+[gd_scene load_steps=5 format=3 uid="uid://3hglaqyo0qi8"]
 
 [ext_resource type="Script" path="res://Scenes/jumpking/jumpking.gd" id="1_bsgj3"]
 [ext_resource type="PackedScene" uid="uid://bk7e1pep2aiqg" path="res://Scenes/jumpking/ant.tscn" id="1_iptl5"]
 [ext_resource type="PackedScene" uid="uid://cex4l38gguvn7" path="res://Scenes/jumpking/level.tscn" id="3_ppreg"]
+[ext_resource type="PackedScene" uid="uid://csrcj4akoouuh" path="res://Scenes/jumpking/finish.tscn" id="4_xjkut"]
 
 [node name="Jumpking" type="Node2D"]
 script = ExtResource("1_bsgj3")
 
+[node name="StaticBody2D" parent="." instance=ExtResource("3_ppreg")]
+
+[node name="Finish" parent="." instance=ExtResource("4_xjkut")]
+position = Vector2(829, -1150)
+
 [node name="Player" parent="." instance=ExtResource("1_iptl5")]
 position = Vector2(238, -47)
-
-[node name="StaticBody2D" parent="." instance=ExtResource("3_ppreg")]
