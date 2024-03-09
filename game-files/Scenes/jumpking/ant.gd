@@ -26,11 +26,14 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * SPEED
 		if direction < 0:
-			sprite.set_flip_h(false)
-		else:
 			sprite.set_flip_h(true)
+		else:
+			sprite.set_flip_h(false)
+			
+		$AnimatedSprite2D.play("default")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		$AnimatedSprite2D.stop()
 
 	move_and_slide()
 
