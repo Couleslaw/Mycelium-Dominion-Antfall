@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bubulwwyf536g"
-path="res://.godot/imported/cave_background.png-606497fba0d8bf832aa0ffd99cdfb34d.ctex"
+uid="uid://dww3n5w6ixek6"
+path="res://.godot/imported/boss_charge2.png-2908c8fe43584c03a975b084d79e6284.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/strilecka/cave_background.png"
-dest_files=["res://.godot/imported/cave_background.png-606497fba0d8bf832aa0ffd99cdfb34d.ctex"]
+source_file="res://Assets/sprites/strilecka/boss_charge2.png"
+dest_files=["res://.godot/imported/boss_charge2.png-2908c8fe43584c03a975b084d79e6284.ctex"]
 
 [params]
 

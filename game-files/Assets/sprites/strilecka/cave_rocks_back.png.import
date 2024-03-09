@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bubulwwyf536g"
-path="res://.godot/imported/cave_background.png-606497fba0d8bf832aa0ffd99cdfb34d.ctex"
+uid="uid://c7thwxwfq15k1"
+path="res://.godot/imported/cave_rocks_back.png-6cb71f18d5af3abebc151de71683586a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/strilecka/cave_background.png"
-dest_files=["res://.godot/imported/cave_background.png-606497fba0d8bf832aa0ffd99cdfb34d.ctex"]
+source_file="res://Assets/sprites/strilecka/cave_rocks_back.png"
+dest_files=["res://.godot/imported/cave_rocks_back.png-6cb71f18d5af3abebc151de71683586a.ctex"]
 
 [params]
 

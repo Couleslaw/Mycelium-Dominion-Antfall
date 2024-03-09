@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bubulwwyf536g"
-path="res://.godot/imported/cave_background.png-606497fba0d8bf832aa0ffd99cdfb34d.ctex"
+uid="uid://imuwt5ogtjt2"
+path="res://.godot/imported/kamehameha.png-45046899b11e759f26a882a24ae975f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/strilecka/cave_background.png"
-dest_files=["res://.godot/imported/cave_background.png-606497fba0d8bf832aa0ffd99cdfb34d.ctex"]
+source_file="res://Assets/sprites/strilecka/kamehameha.png"
+dest_files=["res://.godot/imported/kamehameha.png-45046899b11e759f26a882a24ae975f8.ctex"]
 
 [params]
 

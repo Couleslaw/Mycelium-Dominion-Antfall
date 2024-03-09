@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://bom1frefwbdui"]
+
+[ext_resource type="Script" path="res://Scenes/strilecka/boss-fight/boss.gd" id="1_36tgn"]
+[ext_resource type="Texture2D" uid="uid://cdy0g7q6o8cjf" path="res://Assets/sprites/strilecka/boss.png" id="1_c4e31"]
+[ext_resource type="Texture2D" uid="uid://djapdb4tmdqgb" path="res://Assets/sprites/strilecka/boss_charge1.png" id="2_nvob7"]
+[ext_resource type="Texture2D" uid="uid://dww3n5w6ixek6" path="res://Assets/sprites/strilecka/boss_charge2.png" id="3_k2vob"]
+[ext_resource type="Texture2D" uid="uid://cwl3tknabbkqm" path="res://Assets/sprites/strilecka/boss_idle.png" id="5_u6yn1"]
+[ext_resource type="Script" path="res://Scenes/strilecka/boss-fight/Attack.gd" id="6_cug3w"]
+[ext_resource type="Texture2D" uid="uid://imuwt5ogtjt2" path="res://Assets/sprites/strilecka/kamehameha.png" id="6_x3n2h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qqkbb"]
+radius = 89.0
+height = 188.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qsydq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nvob7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k2vob")
+}],
+"loop": true,
+"name": &"charge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c4e31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u6yn1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6as0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_x3n2h")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gq3im"]
+size = Vector2(106, 762)
+
+[node name="Boss" type="StaticBody2D"]
+z_index = 1
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_36tgn")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -57)
+shape = SubResource("CapsuleShape2D_qqkbb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_qsydq")
+animation = &"charge"
+autoplay = "idle"
+
+[node name="Attack" type="Area2D" parent="."]
+position = Vector2(4, 24)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("6_cug3w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Attack"]
+position = Vector2(-8, 341)
+sprite_frames = SubResource("SpriteFrames_6as0x")
+animation = &"attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
+position = Vector2(4, 371)
+shape = SubResource("RectangleShape2D_gq3im")
+
+[connection signal="body_entered" from="Attack" to="." method="_on_attack_body_entered"]

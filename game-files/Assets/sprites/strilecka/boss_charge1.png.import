@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwgo0a75ypl43"
-path="res://.godot/imported/ant_infected_3.png-52beab01f37aaae7a3674b031c7ef7ba.ctex"
+uid="uid://djapdb4tmdqgb"
+path="res://.godot/imported/boss_charge1.png-c9077483372f1f979176b2d75b8d74bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/strilecka/ant_infected_3.png"
-dest_files=["res://.godot/imported/ant_infected_3.png-52beab01f37aaae7a3674b031c7ef7ba.ctex"]
+source_file="res://Assets/sprites/strilecka/boss_charge1.png"
+dest_files=["res://.godot/imported/boss_charge1.png-c9077483372f1f979176b2d75b8d74bc.ctex"]
 
 [params]
 

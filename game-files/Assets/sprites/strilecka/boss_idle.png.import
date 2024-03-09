@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ufn48xinxfhp"
-path="res://.godot/imported/ant_infected_2.png-ed445741d11374661c3ef778b7bddfca.ctex"
+uid="uid://cwl3tknabbkqm"
+path="res://.godot/imported/boss_idle.png-773112563f07c784aceb57447f701bca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/strilecka/ant_infected_2.png"
-dest_files=["res://.godot/imported/ant_infected_2.png-ed445741d11374661c3ef778b7bddfca.ctex"]
+source_file="res://Assets/sprites/strilecka/boss_idle.png"
+dest_files=["res://.godot/imported/boss_idle.png-773112563f07c784aceb57447f701bca.ctex"]
 
 [params]
 

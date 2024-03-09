@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlbi4bo7q8a40"
-path="res://.godot/imported/ant_infected_1.png-f5e6224b2729ec5c85529bc0d7d5d87c.ctex"
+uid="uid://c74naogagccb1"
+path="res://.godot/imported/ant_infected_side_1.png-8a0f0116506a3483fc1266beabf068c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/strilecka/ant_infected_1.png"
-dest_files=["res://.godot/imported/ant_infected_1.png-f5e6224b2729ec5c85529bc0d7d5d87c.ctex"]
+source_file="res://Assets/sprites/strilecka/ant_infected_side_1.png"
+dest_files=["res://.godot/imported/ant_infected_side_1.png-8a0f0116506a3483fc1266beabf068c3.ctex"]
 
 [params]
 
