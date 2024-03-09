@@ -12,4 +12,5 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	get_tree().quit()
+	if body.name == "Player":
+		get_tree().quit()
