@@ -11,4 +11,4 @@ script = ExtResource("1_bsgj3")
 position = Vector2(153, 159)
 
 [node name="Player" parent="." instance=ExtResource("1_iptl5")]
-position = Vector2(238, -47)
+position = Vector2(1034, -2948)

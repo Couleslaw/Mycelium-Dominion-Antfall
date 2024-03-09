@@ -3,6 +3,7 @@ extends Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(rotation_degrees)
 	pass # Replace with function body.
 
 
@@ -13,4 +14,5 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
-		body.yeet()
+		var dir = 1 if rotation_degrees > 89 and rotation_degrees < 91 else -1
+		body.yeet(dir)
