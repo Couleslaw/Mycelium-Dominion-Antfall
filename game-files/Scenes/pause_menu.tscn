@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf61fhx2gf0th"]
+
+[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_qjn8p"]
+[ext_resource type="Texture2D" uid="uid://bo1e7jmnqbc2n" path="res://Assets/sprites/mainmenu/mushroom_placeholder.png" id="1_tmwvl"]
+[ext_resource type="BitMap" uid="uid://cls8ml7inggip" path="res://Assets/sprites/mainmenu/mushroom_placeholder_bm.png" id="2_m2i17"]
+[ext_resource type="Texture2D" uid="uid://cmn6qiukiscg5" path="res://Scenes/bludiste/NewAssets/arrow.png" id="4_msjrm"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qjn8p")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.156863, 0.156863, 0.156863, 0.596078)
+
+[node name="BackToShroom" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 1568.0
+offset_bottom = 1749.0
+scale = Vector2(0.120001, 0.119999)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_tmwvl")
+texture_click_mask = ExtResource("2_m2i17")
+
+[node name="Continue" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1600.0
+offset_top = 100.0
+offset_right = 1800.0
+offset_bottom = 300.0
+texture_normal = ExtResource("4_msjrm")
+
+[connection signal="pressed" from="BackToShroom" to="." method="_on_back_to_shroom_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

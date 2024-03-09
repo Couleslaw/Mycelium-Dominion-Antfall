@@ -23,7 +23,7 @@ func velocity_to_rad(vel):
 	#if vel == Vector2.DOWN: return PI
 	
 
-func _physics_process(delta):
+func player_movement():
 
 	velocity = Vector2.ZERO # The player's movement vector.
 	if Input.is_action_pressed("ui_right"):
@@ -42,15 +42,14 @@ func _physics_process(delta):
 			rotation = new_rot
 
 
+func _physics_process(delta):
+	
+	player_movement()
+
 	animate()
 	
 	var dir = get_current_tile_dir()
 	if dir != null:
-		if velocity != Vector2.ZERO:
-			new_rot = velocity_to_rad(dir)
-		if new_rot != null:
-			print(new_rot)
-			rotation = new_rot
 		velocity += dir * SPECIAL_TILE_POWER
 	
 	

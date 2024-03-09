@@ -1,6 +1,9 @@
 extends Control
 
 
+#func _ready():
+	#$AudioStreamPlayer2D
+
 func _on_end_shroom_pressed():
 	get_tree().quit()
 

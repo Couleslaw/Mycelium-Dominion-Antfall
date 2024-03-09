@@ -1,6 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://6rocbwmo1xhc"]
+[gd_scene load_steps=38 format=3 uid="uid://6rocbwmo1xhc"]
 
 [ext_resource type="Texture2D" uid="uid://ds2yhcnrsvfp6" path="res://Scenes/bludiste/NewAssets/arrow_down.png" id="1_e1px8"]
+[ext_resource type="Script" path="res://Scenes/bludiste/Scenes/level_1.gd" id="1_e7y6n"]
 [ext_resource type="PackedScene" uid="uid://cw1bueah3jfqe" path="res://Scenes/bludiste/Scenes/player.tscn" id="2_knuxb"]
 [ext_resource type="Texture2D" uid="uid://co2wxe0aobnvn" path="res://Scenes/bludiste/NewAssets/arrow_left.png" id="2_ogchq"]
 [ext_resource type="Texture2D" uid="uid://bqpih80l1ttl8" path="res://Scenes/bludiste/NewAssets/arrow_right.png" id="3_1eh8m"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bn5jrhkhlt4me" path="res://Scenes/bludiste/NewAssets/arrow_up.png" id="4_568jj"]
 [ext_resource type="Texture2D" uid="uid://74qjmlpsdig0" path="res://Scenes/bludiste/NewAssets/ground.png" id="5_g57s7"]
 [ext_resource type="PackedScene" uid="uid://bu1uesgpppw3j" path="res://Scenes/bludiste/ladybug.tscn" id="11_mw0of"]
+[ext_resource type="PackedScene" uid="uid://cf61fhx2gf0th" path="res://Scenes/pause_menu.tscn" id="13_4klqe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_08ber"]
 texture = ExtResource("1_e1px8")
@@ -176,7 +178,13 @@ _data = {
 point_count = 5
 
 [node name="Level1" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_e7y6n")
 metadata/_edit_horizontal_guides_ = [-80.0]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("13_4klqe")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_lx66g")
@@ -193,13 +201,11 @@ layer_2/tile_data = PackedInt32Array(-65541, 10, 0, -131068, 11, 0, -131069, 11,
 position = Vector2(-900, 300)
 
 [node name="Player" parent="." instance=ExtResource("2_knuxb")]
+process_mode = 1
 z_index = 1
-position = Vector2(3100, -1700)
+position = Vector2(-900, 300)
 tilemap_path = NodePath("../TileMap")
 start_position_path = NodePath("../StartPosition")
-metadata/_edit_group_ = true
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
 metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
@@ -207,6 +213,7 @@ color = Color(0, 0.639216, 0.909804, 1)
 energy = 1.67
 blend_mode = 2
 shadow_enabled = true
+shadow_filter = 1
 shadow_filter_smooth = 1.0
 texture = ExtResource("4_7ti3l")
 texture_scale = 6.0
@@ -221,6 +228,7 @@ texture_scale = 1.2
 color = Color(0, 0, 0, 1)
 
 [node name="EnemyPath1" type="Path2D" parent="."]
+process_mode = 1
 position = Vector2(0, -16)
 curve = SubResource("Curve2D_qylpx")
 
@@ -232,6 +240,7 @@ script = ExtResource("3_vqb0j")
 [node name="Enemy1" parent="EnemyPath1/PathFollow2D" instance=ExtResource("3_gbkap")]
 
 [node name="EnemyPath12" type="Path2D" parent="."]
+process_mode = 1
 position = Vector2(0, -16)
 curve = SubResource("Curve2D_cu7tr")
 
@@ -243,6 +252,7 @@ script = ExtResource("3_vqb0j")
 [node name="Enemy1" parent="EnemyPath12/PathFollow2D" instance=ExtResource("3_gbkap")]
 
 [node name="EnemyPath13" type="Path2D" parent="."]
+process_mode = 1
 position = Vector2(0, -16)
 curve = SubResource("Curve2D_oadbb")
 
@@ -254,6 +264,7 @@ script = ExtResource("3_vqb0j")
 [node name="Enemy1" parent="EnemyPath13/PathFollow2D" instance=ExtResource("3_gbkap")]
 
 [node name="EnemyPath14" type="Path2D" parent="."]
+process_mode = 1
 position = Vector2(0, -16)
 curve = SubResource("Curve2D_dmjk0")
 
@@ -265,6 +276,7 @@ script = ExtResource("3_vqb0j")
 [node name="Enemy1" parent="EnemyPath14/PathFollow2D" instance=ExtResource("3_gbkap")]
 
 [node name="EnemyPath3" type="Path2D" parent="."]
+process_mode = 1
 curve = SubResource("Curve2D_wnckf")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="EnemyPath3"]
@@ -274,6 +286,7 @@ script = ExtResource("3_vqb0j")
 [node name="Enemy2" parent="EnemyPath3/PathFollow2D" instance=ExtResource("3_gbkap")]
 
 [node name="EnemyPath2" type="Path2D" parent="."]
+process_mode = 1
 curve = SubResource("Curve2D_2mxug")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="EnemyPath2"]
@@ -283,6 +296,7 @@ script = ExtResource("3_vqb0j")
 [node name="Enemy2" parent="EnemyPath2/PathFollow2D" instance=ExtResource("3_gbkap")]
 
 [node name="EnemyPath4" type="Path2D" parent="."]
+process_mode = 1
 curve = SubResource("Curve2D_5l8s0")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="EnemyPath4"]
@@ -292,6 +306,7 @@ script = ExtResource("3_vqb0j")
 [node name="CharacterBody2D" parent="EnemyPath4/PathFollow2D" instance=ExtResource("3_gbkap")]
 
 [node name="EnemyPath5" type="Path2D" parent="."]
+process_mode = 1
 curve = SubResource("Curve2D_ta24y")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="EnemyPath5"]
@@ -301,6 +316,7 @@ script = ExtResource("3_vqb0j")
 [node name="CharacterBody2D" parent="EnemyPath5/PathFollow2D" instance=ExtResource("3_gbkap")]
 
 [node name="EnemyPath6" type="Path2D" parent="."]
+process_mode = 1
 position = Vector2(2500, -2700)
 curve = SubResource("Curve2D_ueqyu")
 
@@ -311,6 +327,7 @@ script = ExtResource("3_vqb0j")
 [node name="CharacterBody2D" parent="EnemyPath6/PathFollow2D" instance=ExtResource("3_gbkap")]
 
 [node name="EnemyPath7" type="Path2D" parent="."]
+process_mode = 1
 curve = SubResource("Curve2D_8aftw")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="EnemyPath7"]
@@ -320,6 +337,7 @@ script = ExtResource("3_vqb0j")
 [node name="CharacterBody2D" parent="EnemyPath7/PathFollow2D" instance=ExtResource("3_gbkap")]
 
 [node name="EnemyPath8" type="Path2D" parent="."]
+process_mode = 1
 curve = SubResource("Curve2D_rhn7y")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="EnemyPath8"]
@@ -330,6 +348,7 @@ script = ExtResource("3_vqb0j")
 [node name="CharacterBody2D" parent="EnemyPath8/PathFollow2D" instance=ExtResource("3_gbkap")]
 
 [node name="EnemyPath9" type="Path2D" parent="."]
+process_mode = 1
 curve = SubResource("Curve2D_ln1mf")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="EnemyPath9"]
@@ -339,6 +358,7 @@ script = ExtResource("3_vqb0j")
 [node name="CharacterBody2D" parent="EnemyPath9/PathFollow2D" instance=ExtResource("3_gbkap")]
 
 [node name="EnemyPath10" type="Path2D" parent="."]
+process_mode = 1
 curve = SubResource("Curve2D_vvr66")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="EnemyPath10"]
@@ -349,6 +369,7 @@ script = ExtResource("3_vqb0j")
 [node name="CharacterBody2D" parent="EnemyPath10/PathFollow2D" instance=ExtResource("3_gbkap")]
 
 [node name="LadybugPath" type="Path2D" parent="."]
+process_mode = 1
 curve = SubResource("Curve2D_b2p5p")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="LadybugPath"]
@@ -359,6 +380,7 @@ script = ExtResource("3_vqb0j")
 [node name="CharacterBody2D" parent="LadybugPath/PathFollow2D" instance=ExtResource("11_mw0of")]
 
 [node name="LadybugPath2" type="Path2D" parent="."]
+process_mode = 1
 curve = SubResource("Curve2D_kk682")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="LadybugPath2"]
@@ -369,6 +391,7 @@ script = ExtResource("3_vqb0j")
 [node name="CharacterBody2D" parent="LadybugPath2/PathFollow2D" instance=ExtResource("11_mw0of")]
 
 [node name="LadybugPath3" type="Path2D" parent="."]
+process_mode = 1
 curve = SubResource("Curve2D_n5yiq")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="LadybugPath3"]
