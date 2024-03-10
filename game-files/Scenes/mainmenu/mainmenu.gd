@@ -9,7 +9,11 @@ func _on_end_shroom_pressed():
 	get_tree().quit()
 
 func _on_start_shroom_pressed():
+	$AnimationPlayer.play("infect")
+	
+func start_adventure():
 	get_tree().change_scene_to_file("res://Scenes/mainmenu/levelmap.tscn")
+	
 
 var start_animation_playing = false
 var end_animation_playing = false

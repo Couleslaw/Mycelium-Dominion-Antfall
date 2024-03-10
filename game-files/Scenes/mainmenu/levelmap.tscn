@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dg0j0qrnij23b" path="res://Assets/sprites/main_map_placeholder.png" id="1_u467c"]
 [ext_resource type="AudioStream" uid="uid://bctkua2hlal26" path="res://Assets/audio/level_selection_short.mp3" id="5_cje4u"]
 
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p05yc"]
 load_path = "res://.godot/imported/mushroom_placeholder.png-28cb5d14871cceb68fcaef80c529a96b.ctex"
 

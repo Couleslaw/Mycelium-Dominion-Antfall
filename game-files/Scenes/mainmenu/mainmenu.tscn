@@ -1,15 +1,210 @@
-[gd_scene load_steps=10 format=3 uid="uid://dna1yxlemxx2o"]
+[gd_scene load_steps=19 format=3 uid="uid://dna1yxlemxx2o"]
 
 [ext_resource type="Script" path="res://Scenes/mainmenu/mainmenu.gd" id="1_owuo8"]
 [ext_resource type="Texture2D" uid="uid://brnriysbkgch" path="res://Assets/sprites/mainmenu/main_menu_backgound.png" id="2_5o26o"]
 [ext_resource type="Texture2D" uid="uid://mcnrwhgg1272" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_right.png" id="4_o518n"]
+[ext_resource type="AudioStream" uid="uid://bv8d0556c5vrc" path="res://Assets/audio/start_screen_short.mp3" id="4_u44c8"]
 [ext_resource type="BitMap" uid="uid://bno3mq526vw17" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_right_bitmap.png" id="4_y37aw"]
 [ext_resource type="Texture2D" uid="uid://b2ir3nyc7iqp" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_left.png" id="5_fyj20"]
 [ext_resource type="Texture2D" uid="uid://dq7sifs63j7nm" path="res://Assets/sprites/mainmenu/main_menu_foreground.png" id="6_dbnn4"]
 [ext_resource type="BitMap" uid="uid://cpv7yrnru1wxj" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_left_bitmap.png" id="6_wq1to"]
 [ext_resource type="Texture2D" uid="uid://cp8xc74dt6iys" path="res://Assets/sprites/mainmenu/main_menu_right_glow.png" id="7_jsd6d"]
 [ext_resource type="Texture2D" uid="uid://d3aid0it3elnw" path="res://Assets/sprites/mainmenu/main_menu_left_glow.png" id="8_8efbi"]
-[ext_resource type="AudioStream" uid="uid://bv8d0556c5vrc" path="res://Assets/audio/start_screen_short.mp3" id="4_u44c8"]
+[ext_resource type="Texture2D" uid="uid://dcllrfs4amrce" path="res://Assets/sprites/mainmenu/main_menu_ant_normal.png" id="11_her1y"]
+[ext_resource type="Texture2D" uid="uid://cu62yfw38j4na" path="res://Assets/sprites/mainmenu/mushroom.png" id="11_quta6"]
+[ext_resource type="Texture2D" uid="uid://bftyc1vs3vvml" path="res://Assets/sprites/strilecka/projectile_spore.png" id="12_le03f"]
+[ext_resource type="Texture2D" uid="uid://ch58rkwiysi83" path="res://Assets/sprites/mainmenu/main_menu_ant_infected.png" id="12_p08r8"]
+
+[sub_resource type="Curve2D" id="Curve2D_3hhtx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1266, 485, 31.7839, -129.254, -31.7839, 129.254, 1313, 691, 76.2813, -29.665, -76.2813, 29.665, 1025, 891, 67.8056, 19.0703, -67.8056, -19.0703, 493, 940, 80.5192, 127.136, -80.5192, -127.136, 273, 773, -16.9514, 101.708, 16.9514, -101.708, 201, 461, -133.492, -50.8542, 133.492, 50.8542, 425, 249, -175.395, 50.5192, 175.395, -50.5192, 826, 257, -144.087, -86.876, 144.087, 86.876, 1518, 305, 0, 0, 0, 0, 1610, 635)
+}
+point_count = 10
+
+[sub_resource type="Animation" id="Animation_hafur"]
+resource_name = "infect"
+length = 11.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 4.5, 0.347782, 1, -0.3, -0.0533429, 0.2, -0.0140008),
+"times": PackedFloat32Array(0, 6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path2D/PathFollow2D/ProjectileSpore:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.073, -0.25, 0, 5.5, 0.03, 0.15, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 6)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path2D/PathFollow2D/ProjectileSpore:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.073, -0.25, 0, 5.5, 0.03, 0.15, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 6)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AntInfected:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.74, 0.747924, 1, -0.160001, -0.439607, 0.25, 0),
+"times": PackedFloat32Array(6, 8.1)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AntInfected:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("shroom:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-0.00580332, -0.25, 0, 0, -1.14422, -1.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(6, 9.5)
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(11),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_adventure"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Path2D:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_coath"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path2D/PathFollow2D/ProjectileSpore:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.073, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path2D/PathFollow2D/ProjectileSpore:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.073, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AntInfected:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AntInfected:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("shroom:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Path2D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bprw5"]
+_data = {
+"RESET": SubResource("Animation_coath"),
+"infect": SubResource("Animation_hafur")
+}
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -21,29 +216,30 @@ grow_vertical = 2
 script = ExtResource("1_owuo8")
 
 [node name="DefaultBG" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_5o26o")
 
+[node name="EndShroom" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 537.0
+offset_top = 346.0
+offset_right = 897.0
+offset_bottom = 760.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_fyj20")
+texture_click_mask = ExtResource("6_wq1to")
+
 [node name="StartShroom" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 1023.0
+offset_left = 1012.0
 offset_top = 340.0
-offset_right = 1370.0
+offset_right = 1363.0
 offset_bottom = 747.0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_o518n")
 texture_click_mask = ExtResource("4_y37aw")
-
-[node name="EndShroom" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 536.0
-offset_top = 349.0
-offset_right = 891.0
-offset_bottom = 734.0
-mouse_default_cursor_shape = 2
-texture_normal = ExtResource("5_fyj20")
-texture_click_mask = ExtResource("6_wq1to")
 
 [node name="RightLightBG" type="TextureRect" parent="."]
 layout_mode = 0
@@ -73,9 +269,54 @@ stream = ExtResource("4_u44c8")
 volume_db = -2.438
 autoplay = true
 
-[connection signal="mouse_entered" from="StartShroom" to="." method="_on_start_shroom_mouse_entered"]
-[connection signal="mouse_exited" from="StartShroom" to="." method="_on_start_shroom_mouse_exited"]
-[connection signal="pressed" from="StartShroom" to="." method="_on_start_shroom_pressed"]
+[node name="shroom" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1543.0
+offset_top = 827.0
+offset_right = 1723.0
+offset_bottom = 1173.0
+scale = Vector2(1, 1e-05)
+mouse_filter = 2
+texture = ExtResource("11_quta6")
+flip_v = true
+
+[node name="AntNormal" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("11_her1y")
+
+[node name="AntInfected" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("12_p08r8")
+
+[node name="Path2D" type="Path2D" parent="."]
+visible = false
+position = Vector2(16, -16)
+curve = SubResource("Curve2D_3hhtx")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(1266, 485)
+rotation = 1.34648
+
+[node name="ProjectileSpore" type="Sprite2D" parent="Path2D/PathFollow2D"]
+position = Vector2(-0.221615, -0.975067)
+scale = Vector2(0.073, 0.073)
+texture = ExtResource("12_le03f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bprw5")
+}
+
 [connection signal="mouse_entered" from="EndShroom" to="." method="_on_end_shroom_mouse_entered"]
 [connection signal="mouse_exited" from="EndShroom" to="." method="_on_end_shroom_mouse_exited"]
 [connection signal="pressed" from="EndShroom" to="." method="_on_end_shroom_pressed"]
+[connection signal="mouse_entered" from="StartShroom" to="." method="_on_start_shroom_mouse_entered"]
+[connection signal="mouse_exited" from="StartShroom" to="." method="_on_start_shroom_mouse_exited"]
+[connection signal="pressed" from="StartShroom" to="." method="_on_start_shroom_pressed"]

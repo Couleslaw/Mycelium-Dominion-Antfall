@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btp5w2noie4p0"
-path="res://.godot/imported/nevimneco.png-ddbbe613d30151a53b37dbf3cab590a2.ctex"
+uid="uid://cu62yfw38j4na"
+path="res://.godot/imported/mushroom.png-58a2baff5be2b2e6b87d48d7d570180e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/mainmenu/atlas/nevimneco.png"
-dest_files=["res://.godot/imported/nevimneco.png-ddbbe613d30151a53b37dbf3cab590a2.ctex"]
+source_file="res://Assets/sprites/mainmenu/mushroom.png"
+dest_files=["res://.godot/imported/mushroom.png-58a2baff5be2b2e6b87d48d7d570180e.ctex"]
 
 [params]
 
