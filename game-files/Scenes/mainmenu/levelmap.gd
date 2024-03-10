@@ -3,6 +3,7 @@ extends Control
 @export var mushroom_sprites : Array[Resource]
 
 func _ready():
+	$CPUParticles2D.emitting = true
 	$LevelSelectionMusic.play()
 	$HlavniHouba.texture = mushroom_sprites[Global.mushroom_level]
 	$LeftHouba.visible = Global.maze_won
