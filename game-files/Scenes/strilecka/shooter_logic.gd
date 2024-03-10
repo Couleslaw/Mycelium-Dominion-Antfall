@@ -13,6 +13,8 @@ const BOSS_MAX_HEALTH = 30
 var boss_health = BOSS_MAX_HEALTH
 
 func _ready():
+	$FightMusic.play()
+	
 	score_label = $Labels/ScoreLabel
 	player_hp_label = $Labels/PlayerHealthLabel
 	boss_hp_label = $Labels/BossHealthLabel
