@@ -16,6 +16,8 @@ const YEET_VELOCITY = 1500
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	$Camera2D.make_current()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -50,7 +52,6 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("idle")
 		else:
 			$AnimatedSprite2D.stop()
-
 
 	move_and_slide()
 

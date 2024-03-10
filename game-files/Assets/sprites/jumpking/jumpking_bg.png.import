@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3usfniyllqd1"
-path="res://.godot/imported/ant.png-475e3cd2120ea5ad66efbf44528bf3d2.ctex"
+uid="uid://b0p3kpjl2xxf2"
+path="res://.godot/imported/jumpking_bg.png-17e1ff7415d39edd7f27e2e1bcc72403.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/ant/ant.png"
-dest_files=["res://.godot/imported/ant.png-475e3cd2120ea5ad66efbf44528bf3d2.ctex"]
+source_file="res://Assets/sprites/jumpking/jumpking_bg.png"
+dest_files=["res://.godot/imported/jumpking_bg.png-17e1ff7415d39edd7f27e2e1bcc72403.ctex"]
 
 [params]
 
