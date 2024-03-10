@@ -1,15 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://dna1yxlemxx2o"]
+[gd_scene load_steps=11 format=3 uid="uid://dna1yxlemxx2o"]
 
 [ext_resource type="Script" path="res://Scenes/mainmenu/mainmenu.gd" id="1_owuo8"]
 [ext_resource type="Texture2D" uid="uid://brnriysbkgch" path="res://Assets/sprites/mainmenu/main_menu_backgound.png" id="2_5o26o"]
 [ext_resource type="Texture2D" uid="uid://mcnrwhgg1272" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_right.png" id="4_o518n"]
+[ext_resource type="AudioStream" uid="uid://bv8d0556c5vrc" path="res://Assets/audio/start_screen_short.mp3" id="4_u44c8"]
 [ext_resource type="BitMap" uid="uid://bno3mq526vw17" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_right_bitmap.png" id="4_y37aw"]
 [ext_resource type="Texture2D" uid="uid://b2ir3nyc7iqp" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_left.png" id="5_fyj20"]
 [ext_resource type="Texture2D" uid="uid://dq7sifs63j7nm" path="res://Assets/sprites/mainmenu/main_menu_foreground.png" id="6_dbnn4"]
 [ext_resource type="BitMap" uid="uid://cpv7yrnru1wxj" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_left_bitmap.png" id="6_wq1to"]
 [ext_resource type="Texture2D" uid="uid://cp8xc74dt6iys" path="res://Assets/sprites/mainmenu/main_menu_right_glow.png" id="7_jsd6d"]
 [ext_resource type="Texture2D" uid="uid://d3aid0it3elnw" path="res://Assets/sprites/mainmenu/main_menu_left_glow.png" id="8_8efbi"]
-[ext_resource type="AudioStream" uid="uid://bv8d0556c5vrc" path="res://Assets/audio/start_screen_short.mp3" id="4_u44c8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -21,6 +21,7 @@ grow_vertical = 2
 script = ExtResource("1_owuo8")
 
 [node name="DefaultBG" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_5o26o")

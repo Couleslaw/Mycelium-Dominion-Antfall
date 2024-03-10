@@ -76,6 +76,7 @@ func _on_enemy_spawner_spawned_boss(boss):
 	boss.connect("boss_attacked", _on_boss_attack)
 
 func _on_boss_attack(duration):
+	$BossAttackSound.play()
 	$Camera2D.apply_camera_shake(duration)
 
 func _on_boss_hit(boss):

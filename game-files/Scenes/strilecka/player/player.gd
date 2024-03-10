@@ -25,8 +25,9 @@ func shoot_bullet():
 	shift.x *= (-1 if sprite.flip_h else 1)
 	bullet.global_position = position + shift
 	bullet.linear_velocity = Vector2.UP * player_bullet_speed
-	
+	$ShotSound.play()
 	sprite.play("shoot")
+	
 	$ShootAnimationTimer.start(SHOOT_ANIMATION_DURATION)
 	playing_shoot_animation = true
 	
