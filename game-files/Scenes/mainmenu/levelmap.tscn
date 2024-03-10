@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://eo5am77gogy2"]
+[gd_scene load_steps=13 format=3 uid="uid://eo5am77gogy2"]
 
 [ext_resource type="Script" path="res://Scenes/mainmenu/levelmap.gd" id="1_33y4x"]
 [ext_resource type="Texture2D" uid="uid://dg0j0qrnij23b" path="res://Assets/sprites/main_map_placeholder.png" id="1_u467c"]
+[ext_resource type="Texture2D" uid="uid://d0ht4fggokc26" path="res://Assets/sprites/levelmenu/placeholders/houba0.png" id="2_1k6q0"]
+[ext_resource type="Texture2D" uid="uid://cjko5oaqym7g7" path="res://Assets/sprites/levelmenu/placeholders/houba1.png" id="3_up4hf"]
+[ext_resource type="Texture2D" uid="uid://gsny2bl74om6" path="res://Assets/sprites/levelmenu/placeholders/houba2.png" id="4_t8a4g"]
+[ext_resource type="Texture2D" uid="uid://dxis5o5lqeut3" path="res://Assets/sprites/levelmenu/placeholders/houba3.png" id="5_5ke4l"]
 [ext_resource type="AudioStream" uid="uid://bctkua2hlal26" path="res://Assets/audio/level_selection_short.mp3" id="5_cje4u"]
-
+[ext_resource type="Texture2D" uid="uid://b7jyykcyhvjt0" path="res://Assets/sprites/levelmenu/placeholders/unlit.png" id="6_r57pc"]
+[ext_resource type="Texture2D" uid="uid://b0lx7eedwjff7" path="res://Assets/sprites/levelmenu/placeholders/lit.png" id="7_tn7cv"]
+[ext_resource type="Texture2D" uid="uid://mcnrwhgg1272" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_right.png" id="9_nhfy2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p05yc"]
 load_path = "res://.godot/imported/mushroom_placeholder.png-28cb5d14871cceb68fcaef80c529a96b.ctex"
@@ -22,6 +28,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_33y4x")
+mushroom_sprites = [ExtResource("2_1k6q0"), ExtResource("3_up4hf"), ExtResource("4_t8a4g"), ExtResource("5_5ke4l")]
+left_button_sprites = Array[Resource]([ExtResource("6_r57pc"), ExtResource("7_tn7cv")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -42,14 +50,12 @@ texture_click_mask = SubResource("BitMap_5lpo3")
 
 [node name="SkakackaButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 878.0
-offset_top = 735.0
-offset_right = 2346.0
-offset_bottom = 2384.0
-scale = Vector2(0.1, 0.1)
+offset_left = 782.0
+offset_top = 685.0
+offset_right = 1129.0
+offset_bottom = 1092.0
 mouse_default_cursor_shape = 2
-texture_normal = SubResource("CompressedTexture2D_p05yc")
-texture_click_mask = SubResource("BitMap_5lpo3")
+texture_normal = ExtResource("9_nhfy2")
 
 [node name="StrileckaButton" type="TextureButton" parent="."]
 layout_mode = 0
@@ -66,6 +72,28 @@ texture_click_mask = SubResource("BitMap_5lpo3")
 stream = ExtResource("5_cje4u")
 volume_db = -5.77
 
+[node name="HlavniHouba" type="Sprite2D" parent="."]
+position = Vector2(950, 483)
+texture = ExtResource("2_1k6q0")
+
+[node name="LeftHouba" type="Sprite2D" parent="."]
+position = Vector2(566, 785)
+texture = ExtResource("7_tn7cv")
+
+[node name="CenterHouba" type="Sprite2D" parent="."]
+position = Vector2(942, 859)
+texture = ExtResource("7_tn7cv")
+
+[node name="RightHouba" type="Sprite2D" parent="."]
+position = Vector2(1332, 773)
+texture = ExtResource("7_tn7cv")
+
+[connection signal="mouse_entered" from="BludisteButton" to="." method="_on_bludiste_button_mouse_entered"]
+[connection signal="mouse_exited" from="BludisteButton" to="." method="_on_bludiste_button_mouse_exited"]
 [connection signal="pressed" from="BludisteButton" to="." method="_on_bludiste_button_pressed"]
+[connection signal="mouse_entered" from="SkakackaButton" to="." method="_on_skakacka_button_mouse_entered"]
+[connection signal="mouse_exited" from="SkakackaButton" to="." method="_on_skakacka_button_mouse_exited"]
 [connection signal="pressed" from="SkakackaButton" to="." method="_on_skakacka_button_pressed"]
+[connection signal="mouse_entered" from="StrileckaButton" to="." method="_on_strilecka_button_mouse_entered"]
+[connection signal="mouse_exited" from="StrileckaButton" to="." method="_on_strilecka_button_mouse_exited"]
 [connection signal="pressed" from="StrileckaButton" to="." method="_on_strilecka_button_pressed"]

@@ -90,6 +90,12 @@ const TIME_MARGIN = 1
 
 var game_ended = false
 
+func return_to_level_select():
+	if not Global.shooter_won:
+		Global.shooter_won = true
+		Global.increase_mushroom_level()
+	get_tree().change_scene_to_file("res://Scenes/mainmenu/levelmap.tscn")
+	
 func boss_died(boss):
 	if game_ended: return
 	game_ended = true
@@ -97,7 +103,7 @@ func boss_died(boss):
 	$Player.end_game(BOSS_DEATH_ANIMATION_DURATION)
 	$EnemySpawner.end_game(BOSS_DEATH_ANIMATION_DURATION-TIME_MARGIN)
 	await get_tree().create_timer(BOSS_DEATH_ANIMATION_DURATION+TIME_MARGIN).timeout
-	get_tree().change_scene_to_file("res://Scenes/mainmenu/levelmap.tscn")
+	return_to_level_select()
 
 func player_died():
 	if game_ended: return
@@ -105,5 +111,5 @@ func player_died():
 	$Player.die()
 	$EnemySpawner.end_game(PLAYER_DEATH_ANIMATION_DURATION)
 	await get_tree().create_timer(PLAYER_DEATH_ANIMATION_DURATION+TIME_MARGIN).timeout
-	get_tree().change_scene_to_file("res://Scenes/mainmenu/levelmap.tscn")
+	return_to_level_select()
 

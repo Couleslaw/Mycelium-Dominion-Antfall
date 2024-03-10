@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbjr88cud800q"
-path="res://.godot/imported/white_circle.webp-dd220b8aa9c27f379a05b910224c7b2a.ctex"
+uid="uid://b0lx7eedwjff7"
+path="res://.godot/imported/lit.png-992814ca21c1d2b6ef6bd3b20200fa6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/white_circle.webp"
-dest_files=["res://.godot/imported/white_circle.webp-dd220b8aa9c27f379a05b910224c7b2a.ctex"]
+source_file="res://Assets/sprites/levelmenu/placeholders/lit.png"
+dest_files=["res://.godot/imported/lit.png-992814ca21c1d2b6ef6bd3b20200fa6d.ctex"]
 
 [params]
 

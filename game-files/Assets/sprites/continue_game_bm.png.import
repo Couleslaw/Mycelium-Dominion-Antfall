@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bi0fcphhb54xu"
+path="res://.godot/imported/continue_game_bm.png-9a79d17e0b4147e780fd53267fa44923.res"
+
+[deps]
+
+source_file="res://Assets/sprites/continue_game_bm.png"
+dest_files=["res://.godot/imported/continue_game_bm.png-9a79d17e0b4147e780fd53267fa44923.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

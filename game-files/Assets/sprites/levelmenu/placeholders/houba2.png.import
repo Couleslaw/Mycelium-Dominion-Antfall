@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dok2d62a1xat4"
-path="res://.godot/imported/funny_houba.png-a6f91fe359a3c40b617c0f7dcc847fb0.ctex"
+uid="uid://gsny2bl74om6"
+path="res://.godot/imported/houba2.png-9fa412d69ce1e049a05869841d9fdb3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/funny_houba.png"
-dest_files=["res://.godot/imported/funny_houba.png-a6f91fe359a3c40b617c0f7dcc847fb0.ctex"]
+source_file="res://Assets/sprites/levelmenu/placeholders/houba2.png"
+dest_files=["res://.godot/imported/houba2.png-9fa412d69ce1e049a05869841d9fdb3d.ctex"]
 
 [params]
 

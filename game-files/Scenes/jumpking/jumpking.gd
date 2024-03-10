@@ -35,5 +35,8 @@ func _unhandled_input(event):
 			bullet.get_node("PointLight2D").energy = 1
 			
 func finish():
+	if not Global.platformer_won: 
+		Global.increase_mushroom_level()
+		Global.platformer_won = true
 	get_tree().change_scene_to_file("res://Scenes/mainmenu/levelmap.tscn")
 	

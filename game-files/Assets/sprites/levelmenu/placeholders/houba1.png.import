@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e7qnk7mjdosv"
-path="res://.godot/imported/Red_Circle_full.png-2b1163c9b492819a1be81a75e42d95cf.ctex"
+uid="uid://cjko5oaqym7g7"
+path="res://.godot/imported/houba1.png-f8bb17bc69d9326c5e89180f79de16be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/Red_Circle_full.png"
-dest_files=["res://.godot/imported/Red_Circle_full.png-2b1163c9b492819a1be81a75e42d95cf.ctex"]
+source_file="res://Assets/sprites/levelmenu/placeholders/houba1.png"
+dest_files=["res://.godot/imported/houba1.png-f8bb17bc69d9326c5e89180f79de16be.ctex"]
 
 [params]
 

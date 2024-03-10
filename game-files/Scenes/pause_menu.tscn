@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf61fhx2gf0th"]
+[gd_scene load_steps=6 format=3 uid="uid://cf61fhx2gf0th"]
 
 [ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_qjn8p"]
-[ext_resource type="Texture2D" uid="uid://bo1e7jmnqbc2n" path="res://Assets/sprites/mainmenu/mushroom_placeholder.png" id="1_tmwvl"]
-[ext_resource type="BitMap" uid="uid://cls8ml7inggip" path="res://Assets/sprites/mainmenu/mushroom_placeholder_bm.png" id="2_m2i17"]
-[ext_resource type="Texture2D" uid="uid://cmn6qiukiscg5" path="res://Scenes/bludiste/NewAssets/arrow.png" id="4_msjrm"]
+[ext_resource type="Texture2D" uid="uid://mcnrwhgg1272" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_right.png" id="2_85vov"]
+[ext_resource type="BitMap" uid="uid://bee6cig65whr3" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_right_bm.png" id="3_03ex3"]
+[ext_resource type="Texture2D" uid="uid://bqxq41jbic3pg" path="res://Assets/sprites/continue_game.png" id="3_q26nx"]
+[ext_resource type="BitMap" uid="uid://bi0fcphhb54xu" path="res://Assets/sprites/continue_game_bm.png" id="4_0t2cj"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -27,22 +28,26 @@ color = Color(0.156863, 0.156863, 0.156863, 0.596078)
 
 [node name="BackToShroom" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 100.0
-offset_top = 100.0
-offset_right = 1568.0
-offset_bottom = 1749.0
+offset_left = 120.0
+offset_top = 55.0
+offset_right = 1578.0
+offset_bottom = 1480.0
 scale = Vector2(0.120001, 0.119999)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("1_tmwvl")
-texture_click_mask = ExtResource("2_m2i17")
+texture_normal = ExtResource("2_85vov")
+texture_click_mask = ExtResource("3_03ex3")
+stretch_mode = 4
 
 [node name="Continue" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 1600.0
-offset_top = 100.0
-offset_right = 1800.0
-offset_bottom = 300.0
-texture_normal = ExtResource("4_msjrm")
+offset_left = 1619.0
+offset_top = 58.0
+offset_right = 1819.0
+offset_bottom = 258.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_q26nx")
+texture_click_mask = ExtResource("4_0t2cj")
+stretch_mode = 4
 
 [connection signal="pressed" from="BackToShroom" to="." method="_on_back_to_shroom_pressed"]
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

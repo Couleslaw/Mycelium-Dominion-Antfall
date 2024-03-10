@@ -66,5 +66,6 @@ func yeet(dir):
 	velocity.x = YEET_VELOCITY * dir
 	
 func stop():
+	$AnimatedSprite2D.play("idle")
 	sprite.set_flip_h(false)
 	set_physics_process(false)
