@@ -23,6 +23,11 @@ func _ready():
 func _on_area_2d_body_entered(body):
 	$Player.stop()
 	wait = true
+	$Label.modulate.a = 0
+	$Label.visible = true
+	for i in range(50):
+		$Label.modulate.a += 0.02
+		await get_tree().create_timer(0.01).timeout
 	
 func _unhandled_input(event):
 	if event is InputEventKey:
@@ -33,6 +38,12 @@ func _unhandled_input(event):
 			bullet.get_node("Sprite2D").scale = Vector2(0.05,0.05)
 			add_child(bullet)
 			bullet.get_node("PointLight2D").energy = 1
+			
+			if $Label.visible:
+				for i in range(50):
+					$Label.modulate.a -= 0.02
+					await get_tree().create_timer(0.01).timeout
+				$Label.visible = false
 			
 func finish():
 	if not Global.platformer_won: 
