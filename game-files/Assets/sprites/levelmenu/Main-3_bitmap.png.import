@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://ctaclocylaye7"
+path="res://.godot/imported/Main-3_bitmap.png-e2dd1fb550e807d9de414713dc35871f.res"
+
+[deps]
+
+source_file="res://Assets/sprites/levelmenu/Main-3_bitmap.png"
+dest_files=["res://.godot/imported/Main-3_bitmap.png-e2dd1fb550e807d9de414713dc35871f.res"]
+
+[params]
+
+create_from=1
+threshold=0.5
