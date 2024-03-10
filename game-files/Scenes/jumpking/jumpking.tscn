@@ -160,7 +160,7 @@ texture = ExtResource("4_i3mkr")
 position = Vector2(153, 159)
 
 [node name="Player" parent="." instance=ExtResource("1_iptl5")]
-position = Vector2(-705, -2538)
+position = Vector2(333, 126)
 
 [node name="Marker2D" type="Marker2D" parent="Player"]
 position = Vector2(21, -28)

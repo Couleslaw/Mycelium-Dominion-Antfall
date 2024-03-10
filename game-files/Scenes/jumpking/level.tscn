@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cex4l38gguvn7"]
+[gd_scene load_steps=34 format=3 uid="uid://cex4l38gguvn7"]
 
 [ext_resource type="Script" path="res://Scenes/jumpking/level.gd" id="1_fpbjt"]
 [ext_resource type="PackedScene" uid="uid://bxsjdmp33muos" path="res://Scenes/jumpking/jumper.tscn" id="2_aqq6f"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://d3g8nam1hpjnr" path="res://Assets/sprites/jumpking/minigame_jump_mushroom.png" id="3_l6lp6"]
 [ext_resource type="PackedScene" uid="uid://dijebbyb4ge3k" path="res://Scenes/jumpking/yeeter.tscn" id="3_yjo8u"]
 [ext_resource type="Texture2D" uid="uid://dukxu0cu3tk7f" path="res://Assets/sprites/jumpking/minigame_jump_slug_normal.png" id="4_bhqm5"]
-[ext_resource type="Texture2D" uid="uid://2v0owttgeqn" path="res://Assets/sprites/jumpking/slug_shadow.png" id="5_4tbd0"]
 [ext_resource type="Texture2D" uid="uid://dk5y0rme6wgyb" path="res://Assets/sprites/jumpking/Untitled_Artwork.png" id="5_hu73v"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_s4h0y"]
@@ -127,13 +126,6 @@ texture = ExtResource("3_a7n58")
 position = Vector2(-79.5073, -79.5073)
 scale = Vector2(0.893, 0.893)
 texture = ExtResource("4_bhqm5")
-
-[node name="PointLight2D" type="PointLight2D" parent="MinigameJumpMushroom/MinigameJumpSlugNormal"]
-z_index = -4
-position = Vector2(-796.289, -971.849)
-scale = Vector2(1.86421, 1.86421)
-energy = 2.93
-texture = ExtResource("5_4tbd0")
 
 [node name="UntitledArtwork" type="Sprite2D" parent="MinigameJumpMushroom"]
 visible = false
