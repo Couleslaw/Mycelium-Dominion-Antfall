@@ -21,6 +21,7 @@ func _ready():
 
 func _physics_process(delta):
 	# Add the gravity.
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -63,3 +64,7 @@ func catapult():
 	
 func yeet(dir):
 	velocity.x = YEET_VELOCITY * dir
+	
+func stop():
+	sprite.set_flip_h(false)
+	set_physics_process(false)

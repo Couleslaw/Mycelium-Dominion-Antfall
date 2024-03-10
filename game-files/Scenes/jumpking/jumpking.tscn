@@ -1,78 +1,38 @@
-[gd_scene load_steps=9 format=3 uid="uid://3hglaqyo0qi8"]
+[gd_scene load_steps=13 format=3 uid="uid://3hglaqyo0qi8"]
 
 [ext_resource type="Script" path="res://Scenes/jumpking/jumpking.gd" id="1_bsgj3"]
 [ext_resource type="PackedScene" uid="uid://bk7e1pep2aiqg" path="res://Scenes/jumpking/ant.tscn" id="1_iptl5"]
+[ext_resource type="PackedScene" uid="uid://r1r5i5r38saw" path="res://Scenes/strilecka/bullet/player_bullet.tscn" id="2_gp6me"]
 [ext_resource type="PackedScene" uid="uid://cex4l38gguvn7" path="res://Scenes/jumpking/level.tscn" id="3_ppreg"]
 [ext_resource type="Texture2D" uid="uid://ocelsrdr1pb6" path="res://Assets/sprites/jumpking/bg/minigame_jump_background_solid_1.png" id="4_i3mkr"]
 [ext_resource type="PackedScene" uid="uid://cf61fhx2gf0th" path="res://Scenes/pause_menu.tscn" id="5_366r5"]
-
-[sub_resource type="Animation" id="Animation_my8qe"]
-resource_name = "shroom_transition"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-610, -2533), Vector2(191, -2308)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera2D:zoom")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1.8, 1.8), Vector2(0.9, 0.9)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("StaticBody2D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"antbite"
-}]
-}
+[ext_resource type="Script" path="res://Scenes/jumpking/finish.gd" id="7_k6dxp"]
 
 [sub_resource type="Animation" id="Animation_df3bw"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
+tracks/0/path = NodePath("Camera2D:zoom")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-610, -2533)]
+"values": [Vector2(1.8, 1.8)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/path = NodePath("Camera2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.8, 1.8)]
+"values": [Vector2(-610, -2533)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -86,14 +46,106 @@ tracks/2/keys = {
 "values": []
 }
 
+[sub_resource type="Animation" id="Animation_my8qe"]
+resource_name = "shroom_transition"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.8, 1.8), Vector2(1.8, 1.8), Vector2(0.87, 0.87)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"make_current"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-388, -2492), Vector2(-388, -2492), Vector2(191, -2268)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StaticBody2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"antbite"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finish"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_suhsm"]
 _data = {
 "RESET": SubResource("Animation_df3bw"),
 "shroom_transition": SubResource("Animation_my8qe")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6wev"]
+size = Vector2(281, 12.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n8tu1"]
+radius = 57.5382
+height = 341.387
+
 [node name="Jumpking" type="Node2D"]
 script = ExtResource("1_bsgj3")
+bullet_scene = ExtResource("2_gp6me")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -108,7 +160,10 @@ texture = ExtResource("4_i3mkr")
 position = Vector2(153, 159)
 
 [node name="Player" parent="." instance=ExtResource("1_iptl5")]
-position = Vector2(-706, -2530)
+position = Vector2(-705, -2538)
+
+[node name="Marker2D" type="Marker2D" parent="Player"]
+position = Vector2(21, -28)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -123,3 +178,21 @@ libraries = {
 position = Vector2(-610, -2533)
 scale = Vector2(1e-05, 1e-05)
 zoom = Vector2(1.8, 1.8)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-784.5, -2470.75)
+shape = SubResource("RectangleShape2D_e6wev")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 6
+script = ExtResource("7_k6dxp")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-484, -2483)
+rotation = 0.778417
+shape = SubResource("CapsuleShape2D_n8tu1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

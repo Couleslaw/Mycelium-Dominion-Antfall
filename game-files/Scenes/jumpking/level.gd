@@ -11,4 +11,12 @@ func _on_hint_body_entered(body):
 			$MinigameJumpMushroom/DownArrow.show()
 
 func antbite():
-	$MinigameJumpMushroom/UntitledArtwork.show()
+	var snail = $MinigameJumpMushroom/UntitledArtwork 
+	snail.modulate.a = 0
+	snail.show()
+	for i in range(100):
+		snail.modulate.a += 0.01
+		await get_tree().create_timer(0.01).timeout
+	
+	snail.modulate.a = 1
+	
