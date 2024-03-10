@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://3hglaqyo0qi8"]
+[gd_scene load_steps=6 format=3 uid="uid://3hglaqyo0qi8"]
 
 [ext_resource type="Script" path="res://Scenes/jumpking/jumpking.gd" id="1_bsgj3"]
 [ext_resource type="PackedScene" uid="uid://bk7e1pep2aiqg" path="res://Scenes/jumpking/ant.tscn" id="1_iptl5"]
 [ext_resource type="PackedScene" uid="uid://cex4l38gguvn7" path="res://Scenes/jumpking/level.tscn" id="3_ppreg"]
 [ext_resource type="Texture2D" uid="uid://ocelsrdr1pb6" path="res://Assets/sprites/jumpking/bg/minigame_jump_background_solid_1.png" id="4_i3mkr"]
+[ext_resource type="PackedScene" uid="uid://cf61fhx2gf0th" path="res://Scenes/pause_menu.tscn" id="5_366r5"]
 
 [node name="Jumpking" type="Node2D"]
 script = ExtResource("1_bsgj3")
@@ -22,3 +23,7 @@ motion_mirroring = Vector2(1080, 0)
 [node name="MinigameJumpBackgroundSolid1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(238, -1609)
 texture = ExtResource("4_i3mkr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("5_366r5")]

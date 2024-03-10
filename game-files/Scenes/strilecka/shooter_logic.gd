@@ -86,17 +86,19 @@ func _on_boss_hit(boss):
 
 const PLAYER_DEATH_ANIMATION_DURATION = 6
 const BOSS_DEATH_ANIMATION_DURATION = 4
+const TIME_MARGIN = 2
 
 func boss_died(boss):
 	boss.die()
 	$Player/CollisionShape2D.set_deferred("disabled", true)
 	$Player.can_shoot = false
 	$EnemySpawner.end_game(BOSS_DEATH_ANIMATION_DURATION)
-	# TODO return to main scene
+	await get_tree().create_timer(BOSS_DEATH_ANIMATION_DURATION+TIME_MARGIN).timeout
+	get_tree().change_scene_to_file("res://Scenes/mainmenu/levelmap.tscn")
 
 func player_died():
 	$Player.die()
 	$EnemySpawner.end_game(PLAYER_DEATH_ANIMATION_DURATION)
-	await get_tree().create_timer(2).timeout
-	# TODO return to main scene
+	await get_tree().create_timer(PLAYER_DEATH_ANIMATION_DURATION+TIME_MARGIN).timeout
+	get_tree().change_scene_to_file("res://Scenes/mainmenu/levelmap.tscn")
 

@@ -3,11 +3,10 @@ extends Control
 func _ready():
 	hide()
 	
-#func _input(event : InputEvent):
-	#if (event.is_action_pressed("ui_cancel")):
-		#show()
-		#var current_value = get_tree().paused
-		#get_tree().paused = !current_value
+func _input(event : InputEvent):
+	if (event.is_action_pressed("ui_cancel")):
+		visible = !visible
+		get_tree().paused = !get_tree().paused	
 
 func _on_back_to_shroom_pressed():
 	get_tree().paused = false

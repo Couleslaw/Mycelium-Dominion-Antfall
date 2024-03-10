@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxmkh55r4ifsk"]
+[gd_scene load_steps=19 format=3 uid="uid://cxmkh55r4ifsk"]
 
 [ext_resource type="Script" path="res://Scenes/strilecka/shooter_logic.gd" id="1_07sdr"]
 [ext_resource type="PackedScene" uid="uid://cbpra8x42575m" path="res://Scenes/strilecka/player/player.tscn" id="1_f8v21"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scenes/strilecka/BossHealthBar.gd" id="12_i2064"]
 [ext_resource type="Texture2D" uid="uid://dmg17rfhfek6w" path="res://Assets/sprites/strilecka/player_health_bar.png" id="12_pvm0v"]
 [ext_resource type="Script" path="res://Scenes/strilecka/Camera2D.gd" id="12_s2tgq"]
+[ext_resource type="PackedScene" uid="uid://cf61fhx2gf0th" path="res://Scenes/pause_menu.tscn" id="14_3s5rh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ip5nc"]
 font = ExtResource("6_poh8c")
@@ -138,6 +139,8 @@ value = 100.0
 texture_progress = ExtResource("12_pvm0v")
 script = ExtResource("12_gajm3")
 game_logic = NodePath("../..")
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("14_3s5rh")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
