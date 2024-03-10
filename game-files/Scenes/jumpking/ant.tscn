@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bk7e1pep2aiqg"]
+[gd_scene load_steps=11 format=3 uid="uid://bk7e1pep2aiqg"]
 
 [ext_resource type="Script" path="res://Scenes/jumpking/ant.gd" id="1_xfgj3"]
 [ext_resource type="Texture2D" uid="uid://c63pmesgfxoxn" path="res://Assets/sprites/ant_infected/ant_infected_1.png" id="2_xgjth"]
+[ext_resource type="Texture2D" uid="uid://bxqxef64mk2y" path="res://Assets/sprites/ant_infected/ant_infected_side_1_idle.png" id="3_bthyd"]
 [ext_resource type="Texture2D" uid="uid://b6fv8nb7cpt4k" path="res://Assets/sprites/ant_infected/ant_infected_2.png" id="3_o3lg2"]
 [ext_resource type="Texture2D" uid="uid://dqvno5mnfl6vk" path="res://Assets/sprites/ant_infected/ant_infected_3.png" id="4_jbmuu"]
 [ext_resource type="Texture2D" uid="uid://cewtn3uvxoyal" path="res://Assets/sprites/light.webp" id="5_60alb"]
@@ -18,13 +19,24 @@ animations = [{
 "texture": ExtResource("2_xgjth")
 }, {
 "duration": 1.0,
+"texture": ExtResource("3_bthyd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xgjth")
+}, {
+"duration": 1.0,
 "texture": ExtResource("3_o3lg2")
 }, {
 "duration": 1.0,
 "texture": ExtResource("4_jbmuu")
 }],
 "loop": true,
-"name": &"default",
+"name": &"run",
 "speed": 9.0
 }]
 
@@ -40,6 +52,7 @@ shape = SubResource("RectangleShape2D_qo47r")
 position = Vector2(-1.90735e-06, -9.53674e-07)
 scale = Vector2(0.106738, 0.106738)
 sprite_frames = SubResource("SpriteFrames_mre8q")
+animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.8, 1.8)

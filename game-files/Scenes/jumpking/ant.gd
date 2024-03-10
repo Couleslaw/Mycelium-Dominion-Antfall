@@ -40,12 +40,17 @@ func _physics_process(delta):
 		elif not (sign(velocity.x) == sign(direction) and abs(velocity.x) > FLIGHT_DIRECTION_LIMIT):
 			velocity.x = move_toward(velocity.x, direction*SPEED, SPEED/FLIGHT_MOVEMENT_DENOMINATOR) 
 			
-		$AnimatedSprite2D.play("default")
+		$AnimatedSprite2D.play("run")
 	else:
 		var slow_down = SPEED if is_on_floor() else FLIGHT_SLOW_DOWN
 		
 		velocity.x = move_toward(velocity.x, 0, slow_down)
-		$AnimatedSprite2D.stop()
+		
+		if velocity == Vector2.ZERO:
+			$AnimatedSprite2D.play("idle")
+		else:
+			$AnimatedSprite2D.stop()
+
 
 	move_and_slide()
 
