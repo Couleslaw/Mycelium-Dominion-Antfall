@@ -67,7 +67,12 @@ texture_click_mask = ExtResource("12_y4jhr")
 stream = ExtResource("5_cje4u")
 volume_db = -5.77
 
+[node name="NEMAZAY" type="Sprite2D" parent="."]
+position = Vector2(972, 537)
+texture = ExtResource("2_nfeay")
+
 [node name="HlavniHouba" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(972, 537)
 texture = ExtResource("2_nfeay")
 
