@@ -28,7 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_33y4x")
-mushroom_sprites = [ExtResource("2_1k6q0"), ExtResource("3_up4hf"), ExtResource("4_t8a4g"), ExtResource("5_5ke4l")]
+mushroom_sprites = Array[Resource]([ExtResource("2_1k6q0"), ExtResource("3_up4hf"), ExtResource("4_t8a4g"), ExtResource("5_5ke4l")])
 left_button_sprites = Array[Resource]([ExtResource("6_r57pc"), ExtResource("7_tn7cv")])
 
 [node name="TextureRect" type="TextureRect" parent="."]
