@@ -1,7 +1,7 @@
 extends Node2D
 
 var score_label
-const SCORE_NEEDED = 20
+const SCORE_NEEDED = 15
 var score = 0
 
 var player_hp_label

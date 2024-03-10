@@ -35,7 +35,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("6_ldskq")
 
-[node name="BludisteButton" type="TextureButton" parent="."]
+[node name="SkakackaButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 442.0
 offset_top = 726.0
@@ -45,7 +45,7 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("7_qwftm")
 texture_click_mask = ExtResource("7_12gfq")
 
-[node name="SkakackaButton" type="TextureButton" parent="."]
+[node name="BludisteButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 849.0
 offset_top = 718.0
@@ -117,12 +117,12 @@ offset_bottom = 1096.0
 mouse_filter = 2
 texture = ExtResource("18_hj5w6")
 
-[connection signal="mouse_entered" from="BludisteButton" to="." method="_on_bludiste_button_mouse_entered"]
-[connection signal="mouse_exited" from="BludisteButton" to="." method="_on_bludiste_button_mouse_exited"]
-[connection signal="pressed" from="BludisteButton" to="." method="_on_bludiste_button_pressed"]
-[connection signal="mouse_entered" from="SkakackaButton" to="." method="_on_skakacka_button_mouse_entered"]
-[connection signal="mouse_exited" from="SkakackaButton" to="." method="_on_skakacka_button_mouse_exited"]
-[connection signal="pressed" from="SkakackaButton" to="." method="_on_skakacka_button_pressed"]
+[connection signal="mouse_entered" from="SkakackaButton" to="." method="_on_bludiste_button_mouse_entered"]
+[connection signal="mouse_exited" from="SkakackaButton" to="." method="_on_bludiste_button_mouse_exited"]
+[connection signal="pressed" from="SkakackaButton" to="." method="_on_bludiste_button_pressed"]
+[connection signal="mouse_entered" from="BludisteButton" to="." method="_on_skakacka_button_mouse_entered"]
+[connection signal="mouse_exited" from="BludisteButton" to="." method="_on_skakacka_button_mouse_exited"]
+[connection signal="pressed" from="BludisteButton" to="." method="_on_skakacka_button_pressed"]
 [connection signal="mouse_entered" from="StrileckaButton" to="." method="_on_strilecka_button_mouse_entered"]
 [connection signal="mouse_exited" from="StrileckaButton" to="." method="_on_strilecka_button_mouse_exited"]
 [connection signal="pressed" from="StrileckaButton" to="." method="_on_strilecka_button_pressed"]

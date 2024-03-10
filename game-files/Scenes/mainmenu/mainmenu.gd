@@ -4,6 +4,10 @@ func _ready():
 	$LeftLightBG.modulate.a = 0
 	$RightLightBG.modulate.a = 0
 	$StartScreenMusic.play()
+	Global.mushroom_level = 0
+	Global.platformer_won = false
+	Global.maze_won = false
+	Global.shooter_won = false
 
 func _on_end_shroom_pressed():
 	get_tree().quit()
