@@ -14,9 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://cginhu641korb" path="res://Scenes/bludiste/NewAssets/needles_seamless_4.png" id="8_lat02"]
 [ext_resource type="PackedScene" uid="uid://bu1uesgpppw3j" path="res://Scenes/bludiste/ladybug.tscn" id="11_mw0of"]
 [ext_resource type="PackedScene" uid="uid://cf61fhx2gf0th" path="res://Scenes/pause_menu.tscn" id="13_4klqe"]
+[ext_resource type="AudioStream" uid="uid://vr0ak8dqh7fg" path="res://Assets/audio/cave_sound_shorter.mp3" id="15_0p7c5"]
 [ext_resource type="Script" path="res://Scenes/bludiste/Scripts/KillAntsPressure.gd" id="15_irx4f"]
 [ext_resource type="AudioStream" uid="uid://bvcj3sa1ta4qk" path="res://Assets/audio/infect_sound.mp3" id="15_x6ate"]
-[ext_resource type="AudioStream" uid="uid://dkctd0bfnnvo6" path="res://Assets/audio/cave_sound.mp3" id="16_65y3s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_24l5l"]
 font = ExtResource("2_uhvyj")
@@ -443,6 +443,10 @@ position = Vector2(6100, 500)
 position = Vector2(6500, 300)
 rotation = 2.35619
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_0p7c5")
+volume_db = -20.408
+
 [node name="CharacterBody2D8" parent="." instance=ExtResource("11_mw0of")]
 position = Vector2(6300, 300)
 rotation = 1.5708
@@ -457,10 +461,6 @@ stream = ExtResource("15_x6ate")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillAntsPressure"]
 scale = Vector2(9.88, 9.88)
 shape = SubResource("RectangleShape2D_f5scy")
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_65y3s")
-volume_db = -20.408
 
 [connection signal="body_entered" from="KillAntsPressure" to="KillAntsPressure" method="_on_body_entered"]
 [connection signal="body_exited" from="KillAntsPressure" to="KillAntsPressure" method="_on_body_exited"]
