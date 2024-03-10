@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://gptj77jeuec5"]
+
+[ext_resource type="Script" path="res://Scenes/strilecka/bullet/general_bullet.gd" id="1_wcskg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_njddl"]
+radius = 13.9014
+
+[node name="RigidBody2D" type="RigidBody2D"]
+z_index = 1
+collision_layer = 3
+gravity_scale = 0.0
+script = ExtResource("1_wcskg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_njddl")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

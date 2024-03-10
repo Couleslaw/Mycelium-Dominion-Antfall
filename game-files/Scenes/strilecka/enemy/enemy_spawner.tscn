@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://gefdern1s4fy"]
+
+[ext_resource type="Script" path="res://Scenes/strilecka/enemy/enemy_spawner.gd" id="1_juqy6"]
+[ext_resource type="PackedScene" uid="uid://bo432okauno0m" path="res://Scenes/strilecka/enemy/enemy.tscn" id="2_egabg"]
+[ext_resource type="PackedScene" uid="uid://bom1frefwbdui" path="res://Scenes/strilecka/boss-fight/boss.tscn" id="3_j08um"]
+
+[node name="EnemySpawner" type="Node2D"]
+script = ExtResource("1_juqy6")
+enemy_scene = ExtResource("2_egabg")
+boss_scene = ExtResource("3_j08um")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

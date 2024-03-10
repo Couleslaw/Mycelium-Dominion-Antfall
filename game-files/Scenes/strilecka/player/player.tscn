@@ -1,0 +1,106 @@
+[gd_scene load_steps=13 format=3 uid="uid://cbpra8x42575m"]
+
+[ext_resource type="Script" path="res://Scenes/strilecka/player/player.gd" id="1_vqt6o"]
+[ext_resource type="PackedScene" uid="uid://r1r5i5r38saw" path="res://Scenes/strilecka/bullet/player_bullet.tscn" id="2_l153n"]
+[ext_resource type="Texture2D" uid="uid://cmynfia0uh24g" path="res://Assets/sprites/strilecka/ant_infected_shoot_side_1.png" id="3_qpmbl"]
+[ext_resource type="Texture2D" uid="uid://dajnrmnt15h1c" path="res://Assets/sprites/strilecka/ant_infected_side_1_idle.png" id="3_sl3a2"]
+[ext_resource type="Texture2D" uid="uid://bk6j1sgnbg8ki" path="res://Assets/sprites/strilecka/ant_infected_damage_1_side_1.png" id="4_xduld"]
+[ext_resource type="Texture2D" uid="uid://c74naogagccb1" path="res://Assets/sprites/strilecka/ant_infected_side_1.png" id="5_hfbt1"]
+[ext_resource type="Texture2D" uid="uid://uk1nuhj86g4l" path="res://Assets/sprites/strilecka/and_infected_side_dying_2.png" id="5_jwjcg"]
+[ext_resource type="Texture2D" uid="uid://l3dilekxpbbx" path="res://Assets/sprites/strilecka/ant_infected_dead_side_.png" id="5_t8k3g"]
+[ext_resource type="Texture2D" uid="uid://dlncl2yogs5h4" path="res://Assets/sprites/strilecka/ant_infected_side_2.png" id="6_oansm"]
+[ext_resource type="Texture2D" uid="uid://djijg66fggc08" path="res://Assets/sprites/strilecka/ant_infected_side_3.png" id="7_s2fph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2p8w"]
+size = Vector2(170, 102)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_40dnd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sl3a2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hfbt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jwjcg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_t8k3g")
+}],
+"loop": false,
+"name": &"death",
+"speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hfbt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sl3a2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qpmbl")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xduld")
+}],
+"loop": false,
+"name": &"take_damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hfbt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_oansm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_s2fph")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 9.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_vqt6o")
+player_bullet_scene = ExtResource("2_l153n")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, -5)
+shape = SubResource("RectangleShape2D_p2p8w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_40dnd")
+animation = &"death"
+autoplay = "walk"
+frame = 3
+frame_progress = 1.0
+
+[node name="ShootMarker" type="Marker2D" parent="."]
+position = Vector2(63, -94)
+
+[node name="TakeDmgAnimationTimer" type="Timer" parent="."]
+
+[node name="ShootAnimationTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="TakeDmgAnimationTimer" to="." method="_on_take_dmg_animation_timer_timeout"]
+[connection signal="timeout" from="ShootAnimationTimer" to="." method="_on_shoot_animation_timer_timeout"]

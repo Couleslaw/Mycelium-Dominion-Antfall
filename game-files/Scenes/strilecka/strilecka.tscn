@@ -1,0 +1,148 @@
+[gd_scene load_steps=18 format=3 uid="uid://cxmkh55r4ifsk"]
+
+[ext_resource type="Script" path="res://Scenes/strilecka/shooter_logic.gd" id="1_07sdr"]
+[ext_resource type="PackedScene" uid="uid://cbpra8x42575m" path="res://Scenes/strilecka/player/player.tscn" id="1_f8v21"]
+[ext_resource type="Texture2D" uid="uid://b65eaxlmciyl6" path="res://Assets/sprites/strilecka/cave_rocks_front.png" id="5_7b7jg"]
+[ext_resource type="PackedScene" uid="uid://gefdern1s4fy" path="res://Scenes/strilecka/enemy/enemy_spawner.tscn" id="5_stt2s"]
+[ext_resource type="Script" path="res://Scenes/strilecka/Background.gd" id="5_y4bpv"]
+[ext_resource type="FontFile" uid="uid://gnkytdm8m1b" path="res://Assets/fonts/Ubuntu/Ubuntu-Bold.ttf" id="6_poh8c"]
+[ext_resource type="Texture2D" uid="uid://bubulwwyf536g" path="res://Assets/sprites/strilecka/cave_background.png" id="6_sdiyf"]
+[ext_resource type="Texture2D" uid="uid://c7thwxwfq15k1" path="res://Assets/sprites/strilecka/cave_rocks_back.png" id="7_1l7f3"]
+[ext_resource type="Texture2D" uid="uid://bgio8w66jmnyf" path="res://Assets/sprites/strilecka/cave_foreground.png" id="7_de5ay"]
+[ext_resource type="Texture2D" uid="uid://l670heq4b0kn" path="res://Assets/sprites/strilecka/boss_healthbar.png" id="10_dpmlx"]
+[ext_resource type="Script" path="res://Scenes/strilecka/PlayerHealthBar.gd" id="12_gajm3"]
+[ext_resource type="Script" path="res://Scenes/strilecka/BossHealthBar.gd" id="12_i2064"]
+[ext_resource type="Texture2D" uid="uid://dmg17rfhfek6w" path="res://Assets/sprites/strilecka/player_health_bar.png" id="12_pvm0v"]
+[ext_resource type="Script" path="res://Scenes/strilecka/Camera2D.gd" id="12_s2tgq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ip5nc"]
+font = ExtResource("6_poh8c")
+font_size = 50
+outline_size = 10
+outline_color = Color(0.137255, 0.505882, 0.960784, 1)
+shadow_size = 5
+shadow_color = Color(0, 0.615686, 1, 0.454902)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7s3ic"]
+font = ExtResource("6_poh8c")
+font_size = 50
+outline_size = 10
+outline_color = Color(0.831373, 0.168627, 0.203922, 1)
+shadow_size = 5
+shadow_color = Color(0.858824, 0.305882, 0.239216, 0.454902)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k5w7r"]
+font = ExtResource("6_poh8c")
+font_size = 50
+outline_size = 10
+outline_color = Color(0.137255, 0.505882, 0.960784, 1)
+shadow_size = 5
+shadow_color = Color(0, 0.615686, 1, 0.454902)
+shadow_offset = Vector2(3, 2)
+
+[node name="strilecka" type="Node2D"]
+script = ExtResource("1_07sdr")
+
+[node name="Player" parent="." instance=ExtResource("1_f8v21")]
+position = Vector2(850, 983)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("5_stt2s")]
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("5_y4bpv")
+
+[node name="Gradient" type="TextureRect" parent="Background"]
+offset_right = 3000.0
+offset_bottom = 1080.0
+texture = ExtResource("6_sdiyf")
+
+[node name="Foreground" type="TextureRect" parent="Background"]
+z_index = 3
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_de5ay")
+
+[node name="Background2" type="TextureRect" parent="Background"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_1l7f3")
+
+[node name="Background1" type="TextureRect" parent="Background"]
+offset_right = 3000.0
+offset_bottom = 1080.0
+texture = ExtResource("5_7b7jg")
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="Labels"]
+visible = false
+z_index = 10
+offset_left = 26.0
+offset_top = 19.0
+offset_right = 169.0
+offset_bottom = 76.0
+text = "12/20"
+label_settings = SubResource("LabelSettings_ip5nc")
+
+[node name="PlayerHealthLabel" type="Label" parent="Labels"]
+visible = false
+z_index = 10
+offset_left = 1805.0
+offset_top = 19.0
+offset_right = 1883.0
+offset_bottom = 76.0
+text = "4/5"
+label_settings = SubResource("LabelSettings_7s3ic")
+
+[node name="BossHealthLabel" type="Label" parent="Labels"]
+visible = false
+z_index = 5
+offset_left = 946.0
+offset_top = 36.0
+offset_right = 986.0
+offset_bottom = 59.0
+text = "15"
+label_settings = SubResource("LabelSettings_k5w7r")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BossHealthBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("game_logic")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -390.0
+offset_top = -12.0
+offset_right = 444.0
+offset_bottom = 30.0
+grow_horizontal = 2
+value = 100.0
+texture_progress = ExtResource("10_dpmlx")
+script = ExtResource("12_i2064")
+game_logic = NodePath("../..")
+
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("game_logic")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -24.0
+offset_right = 206.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+texture_progress = ExtResource("12_pvm0v")
+script = ExtResource("12_gajm3")
+game_logic = NodePath("../..")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
+script = ExtResource("12_s2tgq")
+
+[connection signal="player_hit" from="Player" to="." method="_on_player_player_hit"]
+[connection signal="spawned_boss" from="EnemySpawner" to="." method="_on_enemy_spawner_spawned_boss"]
+[connection signal="spawned_enemy" from="EnemySpawner" to="." method="_on_enemy_spawner_spawned_enemy"]
