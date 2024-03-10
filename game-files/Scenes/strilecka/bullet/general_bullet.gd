@@ -10,11 +10,11 @@ func _process(delta):
 	var collision_info = move_and_collide(linear_velocity * delta)
 	if collision_info != null:
 		var name = collision_info.get_collider().name
-		collision_info.get_collider().get_hit()
-		queue_free()
+		var should_despawn = collision_info.get_collider().get_hit()
+		if should_despawn: queue_free()
 
 func get_hit():
-	pass 
+	return false 
 
 
 func _on_visible_on_screen_enabler_2d_screen_exited():

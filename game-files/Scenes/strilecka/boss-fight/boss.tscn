@@ -1,47 +1,74 @@
-[gd_scene load_steps=12 format=3 uid="uid://bom1frefwbdui"]
+[gd_scene load_steps=20 format=3 uid="uid://bom1frefwbdui"]
 
 [ext_resource type="Script" path="res://Scenes/strilecka/boss-fight/boss.gd" id="1_36tgn"]
-[ext_resource type="Texture2D" uid="uid://cdy0g7q6o8cjf" path="res://Assets/sprites/strilecka/boss.png" id="1_c4e31"]
-[ext_resource type="Texture2D" uid="uid://djapdb4tmdqgb" path="res://Assets/sprites/strilecka/boss_charge1.png" id="2_nvob7"]
-[ext_resource type="Texture2D" uid="uid://dww3n5w6ixek6" path="res://Assets/sprites/strilecka/boss_charge2.png" id="3_k2vob"]
-[ext_resource type="Texture2D" uid="uid://cwl3tknabbkqm" path="res://Assets/sprites/strilecka/boss_idle.png" id="5_u6yn1"]
+[ext_resource type="Texture2D" uid="uid://irtpumx16vdy" path="res://Assets/sprites/strilecka/fina-boss/final_boss_3.png" id="2_48d4w"]
+[ext_resource type="Texture2D" uid="uid://d0ktblq2gyuid" path="res://Assets/sprites/strilecka/fina-boss/final_boss_4.png" id="3_m5kne"]
+[ext_resource type="Texture2D" uid="uid://bjq3jis17fa1h" path="res://Assets/sprites/strilecka/fina-boss/final_boss_5.png" id="4_hgwyr"]
+[ext_resource type="Texture2D" uid="uid://d2w86bktb3ld1" path="res://Assets/sprites/strilecka/fina-boss/final_boss_1.png" id="4_l2ier"]
+[ext_resource type="Texture2D" uid="uid://b7o7i50hav5fn" path="res://Assets/sprites/strilecka/fina-boss/final_boss_2.png" id="5_7cd4i"]
 [ext_resource type="Script" path="res://Scenes/strilecka/boss-fight/Attack.gd" id="6_cug3w"]
-[ext_resource type="Texture2D" uid="uid://imuwt5ogtjt2" path="res://Assets/sprites/strilecka/kamehameha.png" id="6_x3n2h"]
+[ext_resource type="Texture2D" uid="uid://csx5qns0wp8nc" path="res://Assets/sprites/strilecka/fina-boss/ant_top_1.png" id="7_2q27u"]
+[ext_resource type="Texture2D" uid="uid://cjs7s1xy80ktj" path="res://Assets/sprites/strilecka/fina-boss/final_boss_deathbeam.png" id="8_ntunu"]
+[ext_resource type="Texture2D" uid="uid://de475eh14k3oa" path="res://Assets/sprites/strilecka/fina-boss/ant_top_2.png" id="8_stlau"]
+[ext_resource type="Texture2D" uid="uid://bs7g6cpimsfk" path="res://Assets/sprites/strilecka/fina-boss/ant_top_3.png" id="9_td54p"]
+[ext_resource type="Texture2D" uid="uid://c7fkxkvyk7510" path="res://Assets/sprites/strilecka/fina-boss/ant_top_4.png" id="10_j33wm"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qqkbb"]
-radius = 89.0
-height = 188.0
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_445ya"]
+bounce = 1.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qsydq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_nvob7")
+"texture": ExtResource("2_48d4w")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_k2vob")
+"texture": ExtResource("3_m5kne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hgwyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m5kne")
 }],
 "loop": true,
 "name": &"charge",
-"speed": 5.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_c4e31")
+"texture": ExtResource("4_l2ier")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_u6yn1")
+"texture": ExtResource("5_7cd4i")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_2q27u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_stlau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_td54p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_j33wm")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6as0x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_x3n2h")
+"texture": ExtResource("8_ntunu")
 }],
 "loop": true,
 "name": &"attack",
@@ -51,36 +78,109 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gq3im"]
 size = Vector2(106, 762)
 
+[sub_resource type="Animation" id="Animation_j85p6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -216)]
+}
+
+[sub_resource type="Animation" id="Animation_2v4rf"]
+resource_name = "death"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 2.5, 3, 3.2, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.523599, 0.523599, -0.261799, 0.261799, -0.174533, 0.174533]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.4, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-2, -216), Vector2(-2, -216), Vector2(-2, 2000)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_has0j"]
+_data = {
+"RESET": SubResource("Animation_j85p6"),
+"death": SubResource("Animation_2v4rf")
+}
+
 [node name="Boss" type="StaticBody2D"]
+process_mode = 1
 z_index = 1
+position = Vector2(18, 21)
 collision_layer = 2
-collision_mask = 0
+collision_mask = 64
+physics_material_override = SubResource("PhysicsMaterial_445ya")
 script = ExtResource("1_36tgn")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-1, -57)
-shape = SubResource("CapsuleShape2D_qqkbb")
+polygon = PackedVector2Array(56, 71, 83, 33, 91, -19, 74, -71, -71, -76, -98, -13, -83, 33, -52, 73, 0, 98)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
+position = Vector2(-2, -216)
 sprite_frames = SubResource("SpriteFrames_qsydq")
-animation = &"charge"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Attack" type="Area2D" parent="."]
+process_mode = 1
 position = Vector2(4, 24)
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("6_cug3w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Attack"]
-position = Vector2(-8, 341)
+visible = false
+position = Vector2(-6, 585)
 sprite_frames = SubResource("SpriteFrames_6as0x")
 animation = &"attack"
+frame_progress = 0.656834
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
 position = Vector2(4, 371)
 shape = SubResource("RectangleShape2D_gq3im")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_has0j")
+}
 
 [connection signal="body_entered" from="Attack" to="." method="_on_attack_body_entered"]

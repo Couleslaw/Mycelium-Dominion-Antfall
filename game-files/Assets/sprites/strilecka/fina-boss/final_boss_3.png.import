@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cda7eeocl3p4x"
-path="res://.godot/imported/VwUCAe.png-85420d12ec7c6f52fa42e614ac290148.ctex"
+uid="uid://irtpumx16vdy"
+path="res://.godot/imported/final_boss_3.png-4da73ad205de66de3be1536924a0bbd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/strilecka/VwUCAe.png"
-dest_files=["res://.godot/imported/VwUCAe.png-85420d12ec7c6f52fa42e614ac290148.ctex"]
+source_file="res://Assets/sprites/strilecka/fina-boss/final_boss_3.png"
+dest_files=["res://.godot/imported/final_boss_3.png-4da73ad205de66de3be1536924a0bbd0.ctex"]
 
 [params]
 

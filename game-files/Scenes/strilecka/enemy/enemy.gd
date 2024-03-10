@@ -91,7 +91,7 @@ func get_hit():
 	if health == 0:
 		flying_away = true
 		enemy_died.emit(self)
-		
+	return true
 
 func _on_shoot_timer_timeout():
 	if flying_away: return

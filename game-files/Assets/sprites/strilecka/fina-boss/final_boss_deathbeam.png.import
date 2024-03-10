@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwl3tknabbkqm"
-path="res://.godot/imported/boss_idle.png-773112563f07c784aceb57447f701bca.ctex"
+uid="uid://cjs7s1xy80ktj"
+path="res://.godot/imported/final_boss_deathbeam.png-dfd4c5c989d359aacd42589bf76b36f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/strilecka/boss_idle.png"
-dest_files=["res://.godot/imported/boss_idle.png-773112563f07c784aceb57447f701bca.ctex"]
+source_file="res://Assets/sprites/strilecka/fina-boss/final_boss_deathbeam.png"
+dest_files=["res://.godot/imported/final_boss_deathbeam.png-dfd4c5c989d359aacd42589bf76b36f8.ctex"]
 
 [params]
 

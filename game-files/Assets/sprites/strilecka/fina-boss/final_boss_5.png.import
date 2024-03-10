@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djapdb4tmdqgb"
-path="res://.godot/imported/boss_charge1.png-c9077483372f1f979176b2d75b8d74bc.ctex"
+uid="uid://bjq3jis17fa1h"
+path="res://.godot/imported/final_boss_5.png-ad9460df18e566587996067af8746efd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/strilecka/boss_charge1.png"
-dest_files=["res://.godot/imported/boss_charge1.png-c9077483372f1f979176b2d75b8d74bc.ctex"]
+source_file="res://Assets/sprites/strilecka/fina-boss/final_boss_5.png"
+dest_files=["res://.godot/imported/final_boss_5.png-ad9460df18e566587996067af8746efd.ctex"]
 
 [params]
 
