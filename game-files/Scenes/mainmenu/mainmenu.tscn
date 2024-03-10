@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dna1yxlemxx2o"]
+[gd_scene load_steps=10 format=3 uid="uid://dna1yxlemxx2o"]
 
 [ext_resource type="Script" path="res://Scenes/mainmenu/mainmenu.gd" id="1_owuo8"]
-[ext_resource type="Texture2D" uid="uid://bo1e7jmnqbc2n" path="res://Assets/sprites/mainmenu/mushroom_placeholder.png" id="2_bjvuk"]
-[ext_resource type="BitMap" uid="uid://cls8ml7inggip" path="res://Assets/sprites/mainmenu/mushroom_placeholder_bm.png" id="3_l03dw"]
+[ext_resource type="Texture2D" uid="uid://brnriysbkgch" path="res://Assets/sprites/mainmenu/main_menu_backgound.png" id="2_5o26o"]
+[ext_resource type="Texture2D" uid="uid://mcnrwhgg1272" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_right.png" id="4_o518n"]
+[ext_resource type="BitMap" uid="uid://bno3mq526vw17" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_right_bitmap.png" id="4_y37aw"]
+[ext_resource type="Texture2D" uid="uid://b2ir3nyc7iqp" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_left.png" id="5_fyj20"]
+[ext_resource type="Texture2D" uid="uid://dq7sifs63j7nm" path="res://Assets/sprites/mainmenu/main_menu_foreground.png" id="6_dbnn4"]
+[ext_resource type="BitMap" uid="uid://cpv7yrnru1wxj" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_left_bitmap.png" id="6_wq1to"]
+[ext_resource type="Texture2D" uid="uid://cp8xc74dt6iys" path="res://Assets/sprites/mainmenu/main_menu_right_glow.png" id="7_jsd6d"]
+[ext_resource type="Texture2D" uid="uid://d3aid0it3elnw" path="res://Assets/sprites/mainmenu/main_menu_left_glow.png" id="8_8efbi"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -13,29 +19,57 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_owuo8")
 
+[node name="DefaultBG" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_5o26o")
+
 [node name="StartShroom" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 1148.0
-offset_top = 417.0
-offset_right = 2616.0
-offset_bottom = 2066.0
-scale = Vector2(0.2, 0.2)
+offset_left = 1023.0
+offset_top = 340.0
+offset_right = 1370.0
+offset_bottom = 747.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_bjvuk")
-texture_click_mask = ExtResource("3_l03dw")
+texture_normal = ExtResource("4_o518n")
+texture_click_mask = ExtResource("4_y37aw")
 
 [node name="EndShroom" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 485.0
-offset_top = 411.0
-offset_right = 1953.0
-offset_bottom = 2060.0
-scale = Vector2(0.2, 0.2)
+offset_left = 536.0
+offset_top = 349.0
+offset_right = 891.0
+offset_bottom = 734.0
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("2_bjvuk")
-texture_click_mask = ExtResource("3_l03dw")
+texture_normal = ExtResource("5_fyj20")
+texture_click_mask = ExtResource("6_wq1to")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="RightLightBG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("7_jsd6d")
 
+[node name="LeftLightBG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("8_8efbi")
+
+[node name="MainMenuForeground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 1921.0
+offset_bottom = 1078.0
+mouse_filter = 2
+texture = ExtResource("6_dbnn4")
+
+[connection signal="mouse_entered" from="StartShroom" to="." method="_on_start_shroom_mouse_entered"]
+[connection signal="mouse_exited" from="StartShroom" to="." method="_on_start_shroom_mouse_exited"]
 [connection signal="pressed" from="StartShroom" to="." method="_on_start_shroom_pressed"]
+[connection signal="mouse_entered" from="EndShroom" to="." method="_on_end_shroom_mouse_entered"]
+[connection signal="mouse_exited" from="EndShroom" to="." method="_on_end_shroom_mouse_exited"]
 [connection signal="pressed" from="EndShroom" to="." method="_on_end_shroom_pressed"]
