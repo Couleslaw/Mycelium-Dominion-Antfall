@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://3hglaqyo0qi8"]
+[gd_scene load_steps=14 format=3 uid="uid://3hglaqyo0qi8"]
 
 [ext_resource type="Script" path="res://Scenes/jumpking/jumpking.gd" id="1_bsgj3"]
 [ext_resource type="PackedScene" uid="uid://bk7e1pep2aiqg" path="res://Scenes/jumpking/ant.tscn" id="1_iptl5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ocelsrdr1pb6" path="res://Assets/sprites/jumpking/bg/minigame_jump_background_solid_1.png" id="4_i3mkr"]
 [ext_resource type="PackedScene" uid="uid://cf61fhx2gf0th" path="res://Scenes/pause_menu.tscn" id="5_366r5"]
 [ext_resource type="Script" path="res://Scenes/jumpking/finish.gd" id="7_k6dxp"]
+[ext_resource type="AudioStream" uid="uid://bc1nabop5xtd2" path="res://Assets/audio/jumpking_final.mp3" id="8_uf35v"]
 
 [sub_resource type="Animation" id="Animation_df3bw"]
 length = 0.001
@@ -194,5 +195,9 @@ script = ExtResource("7_k6dxp")
 position = Vector2(-484, -2483)
 rotation = 0.778417
 shape = SubResource("CapsuleShape2D_n8tu1")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_uf35v")
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

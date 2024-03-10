@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dijebbyb4ge3k"]
+[gd_scene load_steps=4 format=3 uid="uid://dijebbyb4ge3k"]
 
 [ext_resource type="Script" path="res://Scenes/jumpking/yeeter.gd" id="1_u242e"]
+[ext_resource type="AudioStream" uid="uid://6wosufp3oayr" path="res://Assets/audio/springboard.mp3" id="2_2aie5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q32ol"]
 size = Vector2(1, 1)
@@ -11,5 +12,8 @@ script = ExtResource("1_u242e")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.98023e-08, 2.98023e-08)
 shape = SubResource("RectangleShape2D_q32ol")
+
+[node name="SpringboardSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2aie5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

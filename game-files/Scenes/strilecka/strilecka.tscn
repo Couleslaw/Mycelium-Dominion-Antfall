@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://cxmkh55r4ifsk"]
+[gd_scene load_steps=22 format=3 uid="uid://cxmkh55r4ifsk"]
 
 [ext_resource type="Script" path="res://Scenes/strilecka/shooter_logic.gd" id="1_07sdr"]
 [ext_resource type="PackedScene" uid="uid://cbpra8x42575m" path="res://Scenes/strilecka/player/player.tscn" id="1_f8v21"]
+[ext_resource type="AudioStream" uid="uid://nwxfnbtvpjbp" path="res://Assets/audio/shot_short.mp3" id="3_ppbfc"]
 [ext_resource type="Texture2D" uid="uid://b65eaxlmciyl6" path="res://Assets/sprites/strilecka/cave_rocks_front.png" id="5_7b7jg"]
 [ext_resource type="PackedScene" uid="uid://gefdern1s4fy" path="res://Scenes/strilecka/enemy/enemy_spawner.tscn" id="5_stt2s"]
 [ext_resource type="Script" path="res://Scenes/strilecka/Background.gd" id="5_y4bpv"]
@@ -15,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dmg17rfhfek6w" path="res://Assets/sprites/strilecka/player_health_bar.png" id="12_pvm0v"]
 [ext_resource type="Script" path="res://Scenes/strilecka/Camera2D.gd" id="12_s2tgq"]
 [ext_resource type="PackedScene" uid="uid://cf61fhx2gf0th" path="res://Scenes/pause_menu.tscn" id="14_3s5rh"]
+[ext_resource type="AudioStream" uid="uid://1sswubw0n0ng" path="res://Assets/audio/fight_music_short.mp3" id="16_py3ii"]
+[ext_resource type="AudioStream" uid="uid://d0nke0e6bobbo" path="res://Assets/audio/laser_beam_1.mp3" id="18_hy05t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ip5nc"]
 font = ExtResource("6_poh8c")
@@ -48,6 +51,9 @@ script = ExtResource("1_07sdr")
 
 [node name="Player" parent="." instance=ExtResource("1_f8v21")]
 position = Vector2(850, 983)
+
+[node name="ShotSound" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("3_ppbfc")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_stt2s")]
 process_mode = 1
@@ -150,6 +156,13 @@ game_logic = NodePath("../..")
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
 script = ExtResource("12_s2tgq")
+
+[node name="FightMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_py3ii")
+autoplay = true
+
+[node name="BossAttackSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_hy05t")
 
 [connection signal="player_hit" from="Player" to="." method="_on_player_player_hit"]
 [connection signal="spawned_boss" from="EnemySpawner" to="." method="_on_enemy_spawner_spawned_boss"]

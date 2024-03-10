@@ -84,6 +84,7 @@ func freeze(duration):
 	shoot_timer.start()
 
 func get_hit():
+	$HitSound.play()
 	health -= 1
 	playing_take_damage_animation = true
 	sprite.play("take_damage")
