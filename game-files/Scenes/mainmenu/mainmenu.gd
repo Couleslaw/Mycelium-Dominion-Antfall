@@ -3,7 +3,7 @@ extends Control
 func _ready():
 	$LeftLightBG.modulate.a = 0
 	$RightLightBG.modulate.a = 0
-
+	$StartScreenMusic.play()
 
 func _on_end_shroom_pressed():
 	get_tree().quit()

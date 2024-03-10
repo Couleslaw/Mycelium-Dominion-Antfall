@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://eo5am77gogy2"]
+[gd_scene load_steps=6 format=3 uid="uid://eo5am77gogy2"]
 
 [ext_resource type="Script" path="res://Scenes/mainmenu/levelmap.gd" id="1_33y4x"]
 [ext_resource type="Texture2D" uid="uid://dg0j0qrnij23b" path="res://Assets/sprites/main_map_placeholder.png" id="1_u467c"]
+[ext_resource type="AudioStream" uid="uid://bctkua2hlal26" path="res://Assets/audio/level_selection_short.mp3" id="5_cje4u"]
+
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p05yc"]
 load_path = "res://.godot/imported/mushroom_placeholder.png-28cb5d14871cceb68fcaef80c529a96b.ctex"
@@ -59,6 +61,10 @@ scale = Vector2(0.1, 0.1)
 mouse_default_cursor_shape = 2
 texture_normal = SubResource("CompressedTexture2D_p05yc")
 texture_click_mask = SubResource("BitMap_5lpo3")
+
+[node name="LevelSelectionMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_cje4u")
+volume_db = -5.77
 
 [connection signal="pressed" from="BludisteButton" to="." method="_on_bludiste_button_pressed"]
 [connection signal="pressed" from="SkakackaButton" to="." method="_on_skakacka_button_pressed"]

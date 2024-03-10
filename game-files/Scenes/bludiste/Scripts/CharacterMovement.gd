@@ -5,23 +5,21 @@ extends CharacterBody2D
 var tilemap
 var start_position
 
+const BASE_ENERGY = 1.67
 const SPEED = 600
 const SPECIAL_TILE_POWER = 1000
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var is_dead = false
 
 func _ready():
+	#get_parent().get_node("AudioStreamPlayer").play()
 	tilemap = get_node(tilemap_path)
 	start_position = get_node(start_position_path)
-	position = start_position.position
+	resurrect()
 
 func velocity_to_rad(vel):
 	return vel.angle() + PI / 2
-	#if vel == Vector2.RIGHT: return PI/2
-	#if vel == Vector2.LEFT: return -PI/2
-	#if vel == Vector2.UP: return 0
-	#if vel == Vector2.DOWN: return PI
-	
 
 func player_movement():
 
@@ -44,17 +42,16 @@ func player_movement():
 
 func _physics_process(delta):
 	
-	player_movement()
+	if !is_dead:
+		player_movement()
 
-	animate()
+		animate()
 	
-	var dir = get_current_tile_dir()
-	if dir != null:
-		velocity += dir * SPECIAL_TILE_POWER
+		var dir = get_current_tile_dir()
+		if dir != null:
+			velocity += dir * SPECIAL_TILE_POWER
 	
-	
-	
-	move_and_slide()
+		move_and_slide()
 
 func animate():
 	if velocity.length() > 0:
@@ -73,5 +70,25 @@ func get_current_tile_dir():
 	else:
 		return null
 
-func _on_area_2d_body_entered(body):
+func die():
+	is_dead = true
+	$DeathSound.play()
+	$AnimatedSprite2D.stop()
+	
+	
+func resurrect():
+	$PointLight2D.energy = BASE_ENERGY
 	position = start_position.position
+	is_dead = false
+
+# da ant is being killed
+func _on_area_2d_body_entered(body):
+	if !is_dead:
+		die()
+		for i in range(10):
+			$PointLight2D.energy -= 1
+			await get_tree().create_timer(0.1).timeout
+		resurrect()
+	
+	
+	

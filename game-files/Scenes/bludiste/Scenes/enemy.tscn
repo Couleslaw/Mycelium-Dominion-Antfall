@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cllmhdh1jq63x"]
+[gd_scene load_steps=9 format=3 uid="uid://cllmhdh1jq63x"]
 
 [ext_resource type="Script" path="res://Scenes/bludiste/Scripts/enemy.gd" id="1_255yv"]
 [ext_resource type="Texture2D" uid="uid://c20xfwxs3nj8i" path="res://Scenes/bludiste/NewAssets/ant_top_1.png" id="1_tbg4v"]
 [ext_resource type="Texture2D" uid="uid://ybtgcrlatof0" path="res://Scenes/bludiste/NewAssets/ant_top_2.png" id="2_pp3p7"]
 [ext_resource type="Texture2D" uid="uid://gsj6r3wqgoei" path="res://Scenes/bludiste/NewAssets/ant_top_3.png" id="3_xwi3v"]
 [ext_resource type="Texture2D" uid="uid://dlunkvnejhpro" path="res://Scenes/bludiste/NewAssets/ant_top_4.png" id="4_q1nkb"]
+[ext_resource type="AudioStream" uid="uid://bsr7ad77d0ame" path="res://Assets/audio/ant_walk.mp3" id="6_yjb4u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2h3gu"]
 animations = [{
@@ -44,3 +45,12 @@ animation = &"walk"
 position = Vector2(-8, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6rey6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_yjb4u")
+volume_db = -13.565
+autoplay = true
+max_distance = 500.0
+attenuation = 0.378928
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

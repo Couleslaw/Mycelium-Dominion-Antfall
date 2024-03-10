@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bu1uesgpppw3j"]
+[gd_scene load_steps=10 format=3 uid="uid://bu1uesgpppw3j"]
 
 [ext_resource type="Script" path="res://Scenes/bludiste/Scripts/enemy.gd" id="1_qepac"]
 [ext_resource type="Texture2D" uid="uid://be6v3iakwr5ou" path="res://Scenes/bludiste/NewAssets/ladybug_top_1.png" id="2_lvh7t"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b4o7jxlxkcph3" path="res://Scenes/bludiste/NewAssets/ladybug_top_3.png" id="4_px8dp"]
 [ext_resource type="Texture2D" uid="uid://p4de0pagj2is" path="res://Scenes/bludiste/NewAssets/ladybug_top_4.png" id="5_o5hhe"]
 [ext_resource type="Texture2D" uid="uid://bsitmkyfyfve4" path="res://Scenes/bludiste/NewAssets/light.webp" id="6_hg5m1"]
+[ext_resource type="AudioStream" uid="uid://bsr7ad77d0ame" path="res://Assets/audio/ant_walk.mp3" id="7_gsqhh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ybk66"]
 animations = [{
@@ -51,3 +52,10 @@ shadow_enabled = true
 shadow_filter = 2
 texture = ExtResource("6_hg5m1")
 texture_scale = 3.88
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_gsqhh")
+volume_db = -12.743
+autoplay = true
+max_distance = 500.0
+attenuation = 0.378928

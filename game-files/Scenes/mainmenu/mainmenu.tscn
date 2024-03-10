@@ -9,6 +9,7 @@
 [ext_resource type="BitMap" uid="uid://cpv7yrnru1wxj" path="res://Assets/sprites/mainmenu/main_menu_background_mushrooms_left_bitmap.png" id="6_wq1to"]
 [ext_resource type="Texture2D" uid="uid://cp8xc74dt6iys" path="res://Assets/sprites/mainmenu/main_menu_right_glow.png" id="7_jsd6d"]
 [ext_resource type="Texture2D" uid="uid://d3aid0it3elnw" path="res://Assets/sprites/mainmenu/main_menu_left_glow.png" id="8_8efbi"]
+[ext_resource type="AudioStream" uid="uid://bv8d0556c5vrc" path="res://Assets/audio/start_screen_short.mp3" id="4_u44c8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -66,6 +67,11 @@ offset_right = 1921.0
 offset_bottom = 1078.0
 mouse_filter = 2
 texture = ExtResource("6_dbnn4")
+
+[node name="StartScreenMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_u44c8")
+volume_db = -2.438
+autoplay = true
 
 [connection signal="mouse_entered" from="StartShroom" to="." method="_on_start_shroom_mouse_entered"]
 [connection signal="mouse_exited" from="StartShroom" to="." method="_on_start_shroom_mouse_exited"]
