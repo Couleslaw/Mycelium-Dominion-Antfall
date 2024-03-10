@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://eo5am77gogy2"]
 
 [ext_resource type="Script" path="res://Scenes/mainmenu/levelmap.gd" id="1_33y4x"]
-[ext_resource type="Texture2D" uid="uid://drso30ls38bk6" path="res://Assets/sprites/main_map_placeholder.png" id="1_u467c"]
+[ext_resource type="Texture2D" uid="uid://dg0j0qrnij23b" path="res://Assets/sprites/main_map_placeholder.png" id="1_u467c"]
 [ext_resource type="Texture2D" uid="uid://bo1e7jmnqbc2n" path="res://Assets/sprites/mainmenu/mushroom_placeholder.png" id="2_8th6p"]
 [ext_resource type="BitMap" uid="uid://cls8ml7inggip" path="res://Assets/sprites/mainmenu/mushroom_placeholder_bm.png" id="3_dqp3p"]
 
