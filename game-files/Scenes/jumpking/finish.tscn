@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://csrcj4akoouuh"]
+
+[ext_resource type="Script" path="res://Scenes/jumpking/finish.gd" id="1_jsqyh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qs3xg"]
+size = Vector2(58, 132)
+
+[node name="Finish" type="Area2D"]
+script = ExtResource("1_jsqyh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(82, 0)
+shape = SubResource("RectangleShape2D_qs3xg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://bk7e1pep2aiqg"]
+
+[ext_resource type="Script" path="res://Scenes/jumpking/ant.gd" id="1_xfgj3"]
+[ext_resource type="Texture2D" uid="uid://c63pmesgfxoxn" path="res://Assets/sprites/ant_infected/ant_infected_1.png" id="2_xgjth"]
+[ext_resource type="Texture2D" uid="uid://b6fv8nb7cpt4k" path="res://Assets/sprites/ant_infected/ant_infected_2.png" id="3_o3lg2"]
+[ext_resource type="Texture2D" uid="uid://dqvno5mnfl6vk" path="res://Assets/sprites/ant_infected/ant_infected_3.png" id="4_jbmuu"]
+[ext_resource type="Texture2D" uid="uid://cewtn3uvxoyal" path="res://Assets/sprites/light.webp" id="5_60alb"]
+[ext_resource type="Texture2D" uid="uid://bm04ldlpprp5a" path="res://Assets/sprites/jumpking/bg/minigame_jump_background_noise_2.png" id="7_xcbyn"]
+[ext_resource type="Texture2D" uid="uid://vo4gvrffqylv" path="res://Assets/sprites/jumpking/bg/minigame_jump_background_noise_3.png" id="8_aow3v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qo47r"]
+size = Vector2(59, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mre8q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xgjth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o3lg2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jbmuu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_xfgj3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -2)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_qo47r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.90735e-06, -9.53674e-07)
+scale = Vector2(0.106738, 0.106738)
+sprite_frames = SubResource("SpriteFrames_mre8q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.8, 1.8)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.14902, 1, 1, 1)
+energy = 1.5
+texture = ExtResource("5_60alb")
+texture_scale = 1.6
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.02, -0.5)
+motion_mirroring = Vector2(1350, 0)
+
+[node name="MinigameJumpBackgroundNoise2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(145, 1056)
+scale = Vector2(0.5404, 0.5404)
+texture = ExtResource("7_xcbyn")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, -0.5)
+motion_mirroring = Vector2(1200, 0)
+
+[node name="MinigameJumpBackgroundNoise3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(110, 1094)
+scale = Vector2(0.5168, 0.5168)
+texture = ExtResource("8_aow3v")
