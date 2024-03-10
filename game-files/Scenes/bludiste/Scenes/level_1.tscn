@@ -501,7 +501,6 @@ rotation = 2.35619
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_0p7c5")
-volume_db = -20.408
 
 [node name="CharacterBody2D8" parent="." instance=ExtResource("11_mw0of")]
 position = Vector2(6300, 300)
@@ -517,6 +516,7 @@ texture = ExtResource("18_egyjk")
 
 [node name="InfectionSound" type="AudioStreamPlayer" parent="KillAntsPressure"]
 stream = ExtResource("15_x6ate")
+volume_db = 5.886
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillAntsPressure"]
 position = Vector2(-500.6, 0)

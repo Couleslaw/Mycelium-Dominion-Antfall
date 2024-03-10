@@ -65,7 +65,7 @@ texture_click_mask = ExtResource("12_y4jhr")
 
 [node name="LevelSelectionMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_cje4u")
-volume_db = -5.77
+volume_db = 4.041
 
 [node name="NEMAZAY" type="Sprite2D" parent="."]
 position = Vector2(972, 537)

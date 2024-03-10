@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dna1yxlemxx2o"]
+[gd_scene load_steps=22 format=3 uid="uid://dna1yxlemxx2o"]
 
 [ext_resource type="Script" path="res://Scenes/mainmenu/mainmenu.gd" id="1_owuo8"]
 [ext_resource type="Texture2D" uid="uid://brnriysbkgch" path="res://Assets/sprites/mainmenu/main_menu_backgound.png" id="2_5o26o"]
@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://cu62yfw38j4na" path="res://Assets/sprites/mainmenu/mushroom.png" id="11_quta6"]
 [ext_resource type="Texture2D" uid="uid://bftyc1vs3vvml" path="res://Assets/sprites/strilecka/projectile_spore.png" id="12_le03f"]
 [ext_resource type="Texture2D" uid="uid://ch58rkwiysi83" path="res://Assets/sprites/mainmenu/main_menu_ant_infected.png" id="12_p08r8"]
+[ext_resource type="Texture2D" uid="uid://cewtn3uvxoyal" path="res://Assets/sprites/light.webp" id="15_1kmvp"]
+[ext_resource type="Texture2D" uid="uid://dv4gusf60lxvh" path="res://Assets/sprites/mainmenu/play.png" id="15_koedg"]
+[ext_resource type="Texture2D" uid="uid://ddux182q5eu66" path="res://Assets/sprites/mainmenu/quit.png" id="16_bjyfl"]
 
 [sub_resource type="Curve2D" id="Curve2D_3hhtx"]
 _data = {
@@ -266,7 +269,7 @@ texture = ExtResource("6_dbnn4")
 
 [node name="StartScreenMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_u44c8")
-volume_db = -2.438
+volume_db = 9.728
 autoplay = true
 
 [node name="shroom" type="TextureRect" parent="."]
@@ -309,10 +312,32 @@ position = Vector2(-0.221615, -0.975067)
 scale = Vector2(0.073, 0.073)
 texture = ExtResource("12_le03f")
 
+[node name="PointLight2D" type="PointLight2D" parent="Path2D/PathFollow2D/ProjectileSpore"]
+texture = ExtResource("15_1kmvp")
+texture_scale = 7.91
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_bprw5")
 }
+
+[node name="Play" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1101.0
+offset_top = 295.0
+offset_right = 1774.0
+offset_bottom = 512.0
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("15_koedg")
+
+[node name="Quit" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 606.0
+offset_top = 303.0
+offset_right = 1279.0
+offset_bottom = 539.0
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("16_bjyfl")
 
 [connection signal="mouse_entered" from="EndShroom" to="." method="_on_end_shroom_mouse_entered"]
 [connection signal="mouse_exited" from="EndShroom" to="." method="_on_end_shroom_mouse_exited"]
