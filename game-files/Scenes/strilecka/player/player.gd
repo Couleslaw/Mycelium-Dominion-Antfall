@@ -33,10 +33,11 @@ func shoot_bullet():
 	get_parent().add_child(bullet)
 	
 var can_shoot = true
+var can_move = true
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if dead: return
+	if dead or not can_move: return
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_left"):
 		sprite.flip_h = true
@@ -64,8 +65,16 @@ func get_hit():
 	playing_take_damage_animation = true
 	$TakeDmgAnimationTimer.start(TAKE_DAMAGE_ANIMATION_DURATION)
 	player_hit.emit()
+	return true
 
 var dead = false
+
+func end_game(delay):
+	$CollisionShape2D.set_deferred("disabled", true)
+	can_shoot = false
+	await get_tree().create_timer(delay).timeout
+	can_move = false
+	sprite.play("idle")
 
 func die():
 	$CollisionShape2D.set_deferred("disabled", true)

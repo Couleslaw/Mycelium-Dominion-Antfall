@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvs8ojrbw8ds2"
-path="res://.godot/imported/projectile_fireball_2.png-10a87314db0fd15f962c16d6a7cf9171.ctex"
+uid="uid://csx5qns0wp8nc"
+path="res://.godot/imported/ant_top_1.png-0cc519746637dcd348593e768ba61ffc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/strilecka/projectile_fireball_2.png"
-dest_files=["res://.godot/imported/projectile_fireball_2.png-10a87314db0fd15f962c16d6a7cf9171.ctex"]
+source_file="res://Assets/sprites/strilecka/fina-boss/ant_top_1.png"
+dest_files=["res://.godot/imported/ant_top_1.png-0cc519746637dcd348593e768ba61ffc.ctex"]
 
 [params]
 

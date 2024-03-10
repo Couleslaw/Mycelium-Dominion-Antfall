@@ -1,15 +1,15 @@
 extends Node2D
 
 var score_label
-const SCORE_NEEDED = 15
+const SCORE_NEEDED = 20
 var score = 0
 
 var player_hp_label
-const PLAYER_MAX_HEALTH = 5
+const PLAYER_MAX_HEALTH = 7
 var player_health = PLAYER_MAX_HEALTH
 
 var boss_hp_label
-const BOSS_MAX_HEALTH = 12
+const BOSS_MAX_HEALTH = 30
 var boss_health = BOSS_MAX_HEALTH
 
 func _ready():
@@ -44,10 +44,12 @@ const BOSS_EMERGE_TIME = 3
 func spawn_boss():
 	$EnemySpawner.freeze_enemies(BOSS_EMERGE_TIME)
 	$Player.can_shoot = false
-	await get_tree().create_timer(BOSS_EMERGE_TIME).timeout
+	await get_tree().create_timer(2).timeout
+	var boss = $EnemySpawner.spawn_boss()
+	await boss.boss_emerged
+	await get_tree().create_timer(1).timeout
 	$Player.can_shoot = true
 	$CanvasLayer/BossHealthBar.visible = true
-	$EnemySpawner.spawn_boss()
 
 func _on_enemy_died(enemy):
 	score += 1
@@ -79,24 +81,27 @@ func _on_boss_attack(duration):
 func _on_boss_hit(boss):
 	boss_health = max(0, boss_health - 1)
 	update_boss_health_bar()
-
 	if boss_health == 0:
 		boss_died(boss)
 
-
-const PLAYER_DEATH_ANIMATION_DURATION = 6
+const PLAYER_DEATH_ANIMATION_DURATION = 2
 const BOSS_DEATH_ANIMATION_DURATION = 4
-const TIME_MARGIN = 2
+const TIME_MARGIN = 1
+
+var game_ended = false
 
 func boss_died(boss):
+	if game_ended: return
+	game_ended = true
 	boss.die()
-	$Player/CollisionShape2D.set_deferred("disabled", true)
-	$Player.can_shoot = false
-	$EnemySpawner.end_game(BOSS_DEATH_ANIMATION_DURATION)
+	$Player.end_game(BOSS_DEATH_ANIMATION_DURATION)
+	$EnemySpawner.end_game(BOSS_DEATH_ANIMATION_DURATION-TIME_MARGIN)
 	await get_tree().create_timer(BOSS_DEATH_ANIMATION_DURATION+TIME_MARGIN).timeout
 	get_tree().change_scene_to_file("res://Scenes/mainmenu/levelmap.tscn")
 
 func player_died():
+	if game_ended: return
+	game_ended = true
 	$Player.die()
 	$EnemySpawner.end_game(PLAYER_DEATH_ANIMATION_DURATION)
 	await get_tree().create_timer(PLAYER_DEATH_ANIMATION_DURATION+TIME_MARGIN).timeout

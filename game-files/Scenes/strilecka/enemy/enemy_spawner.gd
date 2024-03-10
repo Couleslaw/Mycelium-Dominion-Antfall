@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @export var enemy_scene: PackedScene
 @export var boss_scene: PackedScene
 
@@ -75,11 +74,12 @@ var boss_spawned = false
 
 func spawn_boss():
 	boss_spawned = true
-	var spawn_pos = screen_size / 2
+	var spawn_pos = Vector2(screen_size.x/2, screen_size.y/3)
 	var boss = boss_scene.instantiate()
 	boss.position = spawn_pos
 	spawned_boss.emit(boss)
 	add_child(boss)
+	return boss
 
 func _on_enemy_died(enemy):
 	enemy_list.erase(enemy)

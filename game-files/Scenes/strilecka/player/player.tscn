@@ -11,15 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://dlncl2yogs5h4" path="res://Assets/sprites/strilecka/ant_infected_side_2.png" id="6_oansm"]
 [ext_resource type="Texture2D" uid="uid://djijg66fggc08" path="res://Assets/sprites/strilecka/ant_infected_side_3.png" id="7_s2fph"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2p8w"]
-size = Vector2(170, 102)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x82hf"]
+radius = 35.5
+height = 161.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_40dnd"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_sl3a2")
-}, {
 "duration": 1.0,
 "texture": ExtResource("5_hfbt1")
 }, {
@@ -31,7 +29,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 1.5
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -84,15 +82,16 @@ player_bullet_scene = ExtResource("2_l153n")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, -5)
-shape = SubResource("RectangleShape2D_p2p8w")
+position = Vector2(7.5, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_x82hf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_40dnd")
 animation = &"death"
 autoplay = "walk"
-frame = 3
+frame = 2
 frame_progress = 1.0
 
 [node name="ShootMarker" type="Marker2D" parent="."]
