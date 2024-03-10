@@ -1,16 +1,16 @@
 extends Control
 
 @export var mushroom_sprites : Array[Resource]
-@export var left_button_sprites :Array[Resource]
-@export var center_button_sprites :Array[Resource]
-@export var right_button_sprites :Array[Resource]
 
 func _ready():
 	$LevelSelectionMusic.play()
 	$HlavniHouba.texture = mushroom_sprites[Global.mushroom_level]
 	$LeftHouba.visible = Global.maze_won
+	$BludisteButton.disabled = Global.maze_won
 	$CenterHouba.visible = Global.platformer_won
+	$SkakackaButton.disabled = Global.platformer_won
 	$RightHouba.visible = Global.shooter_won
+	$StrileckaButton.disabled = Global.shooter_won
 
 
 func _on_bludiste_button_pressed():
@@ -28,16 +28,16 @@ func _on_bludiste_button_mouse_entered():
 	$LeftHouba.visible = true
 
 func _on_bludiste_button_mouse_exited():
-	$LeftHouba.visible = false
+	if not Global.maze_won: $LeftHouba.visible = false
 
 func _on_skakacka_button_mouse_entered():
 	$CenterHouba.visible = true
 
 func _on_skakacka_button_mouse_exited():
-	$CenterHouba.visible = false
+	if not Global.platformer_won: $CenterHouba.visible = false
 
 func _on_strilecka_button_mouse_entered():
 	$RightHouba.visible = true
 
 func _on_strilecka_button_mouse_exited():
-	$RightHouba.visible = false
+	if not Global.shooter_won: $RightHouba.visible = false

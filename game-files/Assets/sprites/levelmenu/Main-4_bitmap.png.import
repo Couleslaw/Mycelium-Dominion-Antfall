@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cpqy6eslntmni"
+path="res://.godot/imported/Main-4_bitmap.png-542f9884ee20f8ffefb7a2f18b9c7029.res"
+
+[deps]
+
+source_file="res://Assets/sprites/levelmenu/Main-4_bitmap.png"
+dest_files=["res://.godot/imported/Main-4_bitmap.png-542f9884ee20f8ffefb7a2f18b9c7029.res"]
+
+[params]
+
+create_from=1
+threshold=0.5
