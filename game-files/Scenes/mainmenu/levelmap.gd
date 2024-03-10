@@ -3,7 +3,14 @@ extends Control
 @export var mushroom_sprites : Array[Resource]
 
 func play_end_animation():
-	pass
+	$CPUParticles2D.emitting = true
+	await get_tree().create_timer(3.0).timeout
+	for i in range(100):
+		$TextureRect2.modulate.a += 0.01
+		await get_tree().create_timer(0.03).timeout
+	
+	$CPUParticles2D.emitting = false
+	return_to_main_scene()
 	
 func return_to_main_scene():
 	get_tree().change_scene_to_file("res://Scenes/mainmenu/mainmenu.tscn")
@@ -15,7 +22,6 @@ var DELTA = 0.4
 var sprites
 
 func _ready():
-	$CPUParticles2D.emitting = true
 	$LevelSelectionMusic.play()
 	$HlavniHouba.texture = mushroom_sprites[Global.mushroom_level]
 	$LeftHouba.visible = Global.maze_won

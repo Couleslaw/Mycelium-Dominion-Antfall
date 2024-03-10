@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://eo5am77gogy2"]
+[gd_scene load_steps=19 format=3 uid="uid://eo5am77gogy2"]
 
 [ext_resource type="Script" path="res://Scenes/mainmenu/levelmap.gd" id="1_33y4x"]
 [ext_resource type="Texture2D" uid="uid://c7n0xitfer1vk" path="res://Assets/sprites/levelmenu/level_map_shroom_0.png" id="2_nfeay"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://cjuncoe42e0g0" path="res://Assets/sprites/levelmenu/level_map_centre.png" id="10_giulj"]
 [ext_resource type="Texture2D" uid="uid://48nuklhis8x4" path="res://Assets/sprites/levelmenu/level_map_right.png" id="11_fg8dg"]
 [ext_resource type="BitMap" uid="uid://cpqy6eslntmni" path="res://Assets/sprites/levelmenu/Main-4_bitmap.png" id="12_y4jhr"]
+[ext_resource type="Texture2D" uid="uid://fvxep35dm574" path="res://Assets/sprites/mainmenu/spore_particle.png" id="17_e5ctc"]
+[ext_resource type="Texture2D" uid="uid://dd5ovdvw5b0be" path="res://Assets/sprites/mainmenu/black.jpg" id="18_hj5w6"]
 
 [node name="Levelmap" type="Control"]
 layout_mode = 3
@@ -90,11 +92,12 @@ texture = ExtResource("11_fg8dg")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 modulate = Color(0.258824, 1, 1, 1)
+z_index = 2
 position = Vector2(950, 394)
 emitting = false
 amount = 1200
 lifetime = 5.0
-one_shot = true
+texture = ExtResource("17_e5ctc")
 emission_shape = 3
 emission_rect_extents = Vector2(150, 20)
 direction = Vector2(0, 1)
@@ -102,6 +105,14 @@ spread = 150.0
 gravity = Vector2(0, -50)
 initial_velocity_min = 150.0
 initial_velocity_max = 150.0
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 3
+layout_mode = 0
+offset_right = 1929.0
+offset_bottom = 1096.0
+texture = ExtResource("18_hj5w6")
 
 [connection signal="mouse_entered" from="BludisteButton" to="." method="_on_bludiste_button_mouse_entered"]
 [connection signal="mouse_exited" from="BludisteButton" to="." method="_on_bludiste_button_mouse_exited"]
