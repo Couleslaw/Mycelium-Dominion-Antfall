@@ -1,6 +1,5 @@
-extends Area2D
+extends StaticBody2D
 
 
-func _on_body_entered(body):
-	if body.name == "Player":
-		get_tree().quit()
+func get_hit():
+	$"../AnimationPlayer".play("shroom_transition")

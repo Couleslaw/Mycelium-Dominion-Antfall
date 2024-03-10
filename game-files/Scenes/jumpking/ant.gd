@@ -16,9 +16,12 @@ const YEET_VELOCITY = 1500
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	$Camera2D.make_current()
 
 func _physics_process(delta):
 	# Add the gravity.
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -40,12 +43,16 @@ func _physics_process(delta):
 		elif not (sign(velocity.x) == sign(direction) and abs(velocity.x) > FLIGHT_DIRECTION_LIMIT):
 			velocity.x = move_toward(velocity.x, direction*SPEED, SPEED/FLIGHT_MOVEMENT_DENOMINATOR) 
 			
-		$AnimatedSprite2D.play("default")
+		$AnimatedSprite2D.play("run")
 	else:
 		var slow_down = SPEED if is_on_floor() else FLIGHT_SLOW_DOWN
 		
 		velocity.x = move_toward(velocity.x, 0, slow_down)
-		$AnimatedSprite2D.stop()
+		
+		if velocity == Vector2.ZERO:
+			$AnimatedSprite2D.play("idle")
+		else:
+			$AnimatedSprite2D.stop()
 
 	move_and_slide()
 
@@ -57,3 +64,7 @@ func catapult():
 	
 func yeet(dir):
 	velocity.x = YEET_VELOCITY * dir
+	
+func stop():
+	sprite.set_flip_h(false)
+	set_physics_process(false)

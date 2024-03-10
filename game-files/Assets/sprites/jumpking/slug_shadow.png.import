@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0rn6sirloyus"
-path="res://.godot/imported/down_arrow.png-3f0256c02063c9c217d8d1134ee7dbff.ctex"
+uid="uid://2v0owttgeqn"
+path="res://.godot/imported/slug_shadow.png-132c47a5cd8161eb7c03a46ad0e78fe7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/down_arrow.png"
-dest_files=["res://.godot/imported/down_arrow.png-3f0256c02063c9c217d8d1134ee7dbff.ctex"]
+source_file="res://Assets/sprites/jumpking/slug_shadow.png"
+dest_files=["res://.godot/imported/slug_shadow.png-132c47a5cd8161eb7c03a46ad0e78fe7.ctex"]
 
 [params]
 

@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var bullet_scene : PackedScene
+var wait = false
 
 func set_camera_limits():
 	var map_limits_left = $StaticBody2D/BorderLeft.position.x
@@ -16,3 +18,22 @@ func set_camera_limits():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_camera_limits()
+
+
+func _on_area_2d_body_entered(body):
+	$Player.stop()
+	wait = true
+	
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_SPACE and wait:
+			var bullet = bullet_scene.instantiate()
+			bullet.linear_velocity = Vector2.RIGHT * 600
+			bullet.position = $Player.position + $Player/Marker2D.position
+			bullet.get_node("Sprite2D").scale = Vector2(0.05,0.05)
+			add_child(bullet)
+			bullet.get_node("PointLight2D").energy = 1
+			
+func finish():
+	get_tree().change_scene_to_file("res://Scenes/mainmenu/levelmap.tscn")
+	

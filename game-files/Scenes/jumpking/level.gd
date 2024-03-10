@@ -8,4 +8,15 @@ func _on_hint_body_entered(body):
 	if body.name == "Player":
 		hint_count+=1
 		if hint_count >= GET_HINT:
-			$DownArrow.show()
+			$MinigameJumpMushroom/DownArrow.show()
+
+func antbite():
+	var snail = $MinigameJumpMushroom/UntitledArtwork 
+	snail.modulate.a = 0
+	snail.show()
+	for i in range(100):
+		snail.modulate.a += 0.01
+		await get_tree().create_timer(0.01).timeout
+	
+	snail.modulate.a = 1
+	
