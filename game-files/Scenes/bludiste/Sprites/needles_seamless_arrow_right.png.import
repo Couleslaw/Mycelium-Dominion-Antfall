@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6xqv86nrhgsd"
-path="res://.godot/imported/minigame_jump_background_noise_3.png-9f582a2ffc9eb03d29a2f9b6593c77bf.ctex"
+uid="uid://s7i8l1tsn5nq"
+path="res://.godot/imported/needles_seamless_arrow_right.png-fdd2c10a0ce15d0c9c465f3cfccad372.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/jumpking/bg/minigame_jump_background_noise_3.png"
-dest_files=["res://.godot/imported/minigame_jump_background_noise_3.png-9f582a2ffc9eb03d29a2f9b6593c77bf.ctex"]
+source_file="res://Scenes/bludiste/Sprites/needles_seamless_arrow_right.png"
+dest_files=["res://.godot/imported/needles_seamless_arrow_right.png-fdd2c10a0ce15d0c9c465f3cfccad372.ctex"]
 
 [params]
 

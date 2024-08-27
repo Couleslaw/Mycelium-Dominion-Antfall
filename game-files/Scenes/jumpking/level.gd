@@ -11,7 +11,7 @@ func _on_hint_body_entered(body):
 			$MinigameJumpMushroom/DownArrow.show()
 
 func antbite():
-	var snail = $MinigameJumpMushroom/UntitledArtwork 
+	var snail = $MinigameJumpMushroom/SlugGlowing 
 	snail.modulate.a = 0
 	snail.show()
 	for i in range(100):

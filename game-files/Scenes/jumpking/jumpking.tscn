@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bk7e1pep2aiqg" path="res://Scenes/jumpking/ant.tscn" id="1_iptl5"]
 [ext_resource type="PackedScene" uid="uid://r1r5i5r38saw" path="res://Scenes/strilecka/bullet/player_bullet.tscn" id="2_gp6me"]
 [ext_resource type="PackedScene" uid="uid://cex4l38gguvn7" path="res://Scenes/jumpking/level.tscn" id="3_ppreg"]
-[ext_resource type="Texture2D" uid="uid://ocelsrdr1pb6" path="res://Assets/sprites/jumpking/bg/minigame_jump_background_solid_1.png" id="4_i3mkr"]
 [ext_resource type="PackedScene" uid="uid://cf61fhx2gf0th" path="res://Scenes/pause_menu.tscn" id="5_366r5"]
+[ext_resource type="Texture2D" uid="uid://t61r1auclojm" path="res://Assets/sprites/jumpking/bg/minigame_jump_background.jpeg" id="5_er3xe"]
 [ext_resource type="Script" path="res://Scenes/jumpking/finish.gd" id="7_k6dxp"]
 [ext_resource type="AudioStream" uid="uid://bc1nabop5xtd2" path="res://Assets/audio/jumpking_final.mp3" id="8_uf35v"]
 
@@ -38,7 +38,7 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("StaticBody2D")
+tracks/2/path = NodePath("Level")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -91,7 +91,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("StaticBody2D")
+tracks/3/path = NodePath("Level")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -148,16 +148,7 @@ height = 341.387
 script = ExtResource("1_bsgj3")
 bullet_scene = ExtResource("2_gp6me")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1080, 0)
-
-[node name="MinigameJumpBackgroundSolid1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(238, -1609)
-texture = ExtResource("4_i3mkr")
-
-[node name="StaticBody2D" parent="." instance=ExtResource("3_ppreg")]
+[node name="Level" parent="." instance=ExtResource("3_ppreg")]
 position = Vector2(153, 159)
 
 [node name="Player" parent="." instance=ExtResource("1_iptl5")]
@@ -165,6 +156,14 @@ position = Vector2(333, 126)
 
 [node name="Marker2D" type="Marker2D" parent="Player"]
 position = Vector2(21, -28)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="StaticBackground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(182, -1661)
+texture = ExtResource("5_er3xe")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -180,18 +179,18 @@ position = Vector2(-610, -2533)
 scale = Vector2(1e-05, 1e-05)
 zoom = Vector2(1.8, 1.8)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="FinishDetectionArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishDetectionArea"]
 position = Vector2(-784.5, -2470.75)
 shape = SubResource("RectangleShape2D_e6wev")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="SlugHitbox" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 6
 script = ExtResource("7_k6dxp")
 
-[node name="CollisionShape2D22" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="SlugHitbox"]
 position = Vector2(-484, -2483)
 rotation = 0.778417
 shape = SubResource("CapsuleShape2D_n8tu1")
@@ -210,4 +209,4 @@ text = "Press SPACE to shoot"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="FinishDetectionArea" to="." method="_on_area_2d_body_entered"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6xqv86nrhgsd"
-path="res://.godot/imported/minigame_jump_background_noise_3.png-9f582a2ffc9eb03d29a2f9b6593c77bf.ctex"
+uid="uid://t61r1auclojm"
+path="res://.godot/imported/minigame_jump_background.jpeg-06ba9f23c6cc5cb5d5c5f3c9a37a43d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/jumpking/bg/minigame_jump_background_noise_3.png"
-dest_files=["res://.godot/imported/minigame_jump_background_noise_3.png-9f582a2ffc9eb03d29a2f9b6593c77bf.ctex"]
+source_file="res://Assets/sprites/jumpking/bg/minigame_jump_background.jpeg"
+dest_files=["res://.godot/imported/minigame_jump_background.jpeg-06ba9f23c6cc5cb5d5c5f3c9a37a43d9.ctex"]
 
 [params]
 

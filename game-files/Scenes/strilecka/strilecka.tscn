@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b65eaxlmciyl6" path="res://Assets/sprites/strilecka/cave_rocks_front.png" id="5_7b7jg"]
 [ext_resource type="PackedScene" uid="uid://gefdern1s4fy" path="res://Scenes/strilecka/enemy/enemy_spawner.tscn" id="5_stt2s"]
 [ext_resource type="Script" path="res://Scenes/strilecka/Background.gd" id="5_y4bpv"]
+[ext_resource type="Texture2D" uid="uid://nsuasg7ql02p" path="res://Assets/sprites/strilecka/cave_background.jpeg" id="6_plv7b"]
 [ext_resource type="FontFile" uid="uid://gnkytdm8m1b" path="res://Assets/fonts/Ubuntu/Ubuntu-Bold.ttf" id="6_poh8c"]
-[ext_resource type="Texture2D" uid="uid://bubulwwyf536g" path="res://Assets/sprites/strilecka/cave_background.png" id="6_sdiyf"]
 [ext_resource type="Texture2D" uid="uid://bcsr5np83yt86" path="res://Assets/sprites/strilecka/cave_foreground_2.png" id="6_yt441"]
 [ext_resource type="Texture2D" uid="uid://c7thwxwfq15k1" path="res://Assets/sprites/strilecka/cave_rocks_back.png" id="7_1l7f3"]
 [ext_resource type="Texture2D" uid="uid://l670heq4b0kn" path="res://Assets/sprites/strilecka/boss_healthbar.png" id="10_dpmlx"]
@@ -65,7 +65,7 @@ script = ExtResource("5_y4bpv")
 [node name="Gradient" type="TextureRect" parent="Background"]
 offset_right = 3000.0
 offset_bottom = 1080.0
-texture = ExtResource("6_sdiyf")
+texture = ExtResource("6_plv7b")
 
 [node name="Foreground" type="TextureRect" parent="Background"]
 z_index = 3

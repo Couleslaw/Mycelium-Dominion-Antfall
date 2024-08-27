@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6xqv86nrhgsd"
-path="res://.godot/imported/minigame_jump_background_noise_3.png-9f582a2ffc9eb03d29a2f9b6593c77bf.ctex"
+uid="uid://be6v3iakwr5ou"
+path="res://.godot/imported/ladybug_top_1.png-ab07e7fc8c080522fc5bc4f3c220d773.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/jumpking/bg/minigame_jump_background_noise_3.png"
-dest_files=["res://.godot/imported/minigame_jump_background_noise_3.png-9f582a2ffc9eb03d29a2f9b6593c77bf.ctex"]
+source_file="res://Scenes/bludiste/Sprites/ladybug_top_1.png"
+dest_files=["res://.godot/imported/ladybug_top_1.png-ab07e7fc8c080522fc5bc4f3c220d773.ctex"]
 
 [params]
 

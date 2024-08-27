@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6xqv86nrhgsd"
-path="res://.godot/imported/minigame_jump_background_noise_3.png-9f582a2ffc9eb03d29a2f9b6593c77bf.ctex"
+uid="uid://dmjgsau0s08qy"
+path="res://.godot/imported/wall.png-ff1f07889bbd79b3e9b19fe80ef9970a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/jumpking/bg/minigame_jump_background_noise_3.png"
-dest_files=["res://.godot/imported/minigame_jump_background_noise_3.png-9f582a2ffc9eb03d29a2f9b6593c77bf.ctex"]
+source_file="res://Scenes/bludiste/Sprites/wall.png"
+dest_files=["res://.godot/imported/wall.png-ff1f07889bbd79b3e9b19fe80ef9970a.ctex"]
 
 [params]
 

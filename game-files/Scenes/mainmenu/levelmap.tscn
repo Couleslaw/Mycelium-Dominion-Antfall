@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://c7n0xitfer1vk" path="res://Assets/sprites/levelmenu/level_map_shroom_0.png" id="2_nfeay"]
 [ext_resource type="Texture2D" uid="uid://dj3b3mvm7dhmt" path="res://Assets/sprites/levelmenu/level_map_shroom_1.png" id="3_3ovqq"]
 [ext_resource type="Texture2D" uid="uid://bn2tywcb61o75" path="res://Assets/sprites/levelmenu/level_map_shroom_2.png" id="4_sd8ho"]
-[ext_resource type="AudioStream" uid="uid://bctkua2hlal26" path="res://Assets/audio/level_selection_short.mp3" id="5_cje4u"]
 [ext_resource type="Texture2D" uid="uid://30v18u11hf67" path="res://Assets/sprites/levelmenu/level_map_shroom_3.png" id="5_tp8e0"]
 [ext_resource type="Texture2D" uid="uid://cabsgwqm6wbds" path="res://Assets/sprites/levelmenu/level_map_background.png" id="6_ldskq"]
 [ext_resource type="BitMap" uid="uid://csbi1r8hd1bap" path="res://Assets/sprites/levelmenu/Main-2_bitmap.png" id="7_12gfq"]
@@ -16,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cjuncoe42e0g0" path="res://Assets/sprites/levelmenu/level_map_centre.png" id="10_giulj"]
 [ext_resource type="Texture2D" uid="uid://48nuklhis8x4" path="res://Assets/sprites/levelmenu/level_map_right.png" id="11_fg8dg"]
 [ext_resource type="BitMap" uid="uid://cpqy6eslntmni" path="res://Assets/sprites/levelmenu/Main-4_bitmap.png" id="12_y4jhr"]
+[ext_resource type="AudioStream" uid="uid://csckgpi31mdu4" path="res://Assets/audio/level_selection.mp3" id="13_1g1fj"]
 [ext_resource type="Texture2D" uid="uid://fvxep35dm574" path="res://Assets/sprites/mainmenu/spore_particle.png" id="17_e5ctc"]
 [ext_resource type="Texture2D" uid="uid://dd5ovdvw5b0be" path="res://Assets/sprites/mainmenu/black.jpg" id="18_hj5w6"]
 
@@ -66,8 +66,9 @@ texture_normal = ExtResource("9_0f81u")
 texture_click_mask = ExtResource("12_y4jhr")
 
 [node name="LevelSelectionMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_cje4u")
+stream = ExtResource("13_1g1fj")
 volume_db = 4.041
+autoplay = true
 
 [node name="NEMAZAY" type="Sprite2D" parent="."]
 position = Vector2(972, 537)

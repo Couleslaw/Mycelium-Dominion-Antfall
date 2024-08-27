@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6xqv86nrhgsd"
-path="res://.godot/imported/minigame_jump_background_noise_3.png-9f582a2ffc9eb03d29a2f9b6593c77bf.ctex"
+uid="uid://c1seocr233ekj"
+path="res://.godot/imported/ant_nest_normal.png-7813fb22dcee80fcaa0e2cddba3b85ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/jumpking/bg/minigame_jump_background_noise_3.png"
-dest_files=["res://.godot/imported/minigame_jump_background_noise_3.png-9f582a2ffc9eb03d29a2f9b6593c77bf.ctex"]
+source_file="res://Scenes/bludiste/Sprites/ant_nest_normal.png"
+dest_files=["res://.godot/imported/ant_nest_normal.png-7813fb22dcee80fcaa0e2cddba3b85ec.ctex"]
 
 [params]
 

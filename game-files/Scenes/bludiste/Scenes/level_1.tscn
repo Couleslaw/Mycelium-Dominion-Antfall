@@ -5,20 +5,20 @@
 [ext_resource type="FontFile" uid="uid://gnkytdm8m1b" path="res://Assets/fonts/Ubuntu/Ubuntu-Bold.ttf" id="2_uhvyj"]
 [ext_resource type="PackedScene" uid="uid://cllmhdh1jq63x" path="res://Scenes/bludiste/Scenes/enemy.tscn" id="3_gbkap"]
 [ext_resource type="Script" path="res://Scenes/bludiste/Scripts/EnemyFollow.gd" id="3_vqb0j"]
-[ext_resource type="Texture2D" uid="uid://bykrre41crv2" path="res://Scenes/bludiste/NewAssets/needles_seamless_arrow_down.png" id="3_wv8mw"]
-[ext_resource type="Texture2D" uid="uid://c4bjonbku666e" path="res://Scenes/bludiste/NewAssets/needles_seamless_arrow_left.png" id="4_3e7nb"]
-[ext_resource type="Texture2D" uid="uid://dmjgsau0s08qy" path="res://Scenes/bludiste/NewAssets/wall.png" id="4_4dbsc"]
-[ext_resource type="Texture2D" uid="uid://bsitmkyfyfve4" path="res://Scenes/bludiste/NewAssets/light.webp" id="4_7ti3l"]
-[ext_resource type="Texture2D" uid="uid://c1seocr233ekj" path="res://Scenes/bludiste/NewAssets/ant_nest_normal.png" id="4_lxmk1"]
-[ext_resource type="Texture2D" uid="uid://s7i8l1tsn5nq" path="res://Scenes/bludiste/NewAssets/needles_seamless_arrow_right.png" id="5_kmgha"]
-[ext_resource type="Texture2D" uid="uid://dk3pn4rtbbvyo" path="res://Scenes/bludiste/NewAssets/needles_seamless_arrow_up.png" id="6_e8ngi"]
-[ext_resource type="Texture2D" uid="uid://cginhu641korb" path="res://Scenes/bludiste/NewAssets/needles_seamless_4.png" id="8_lat02"]
+[ext_resource type="Texture2D" uid="uid://bykrre41crv2" path="res://Scenes/bludiste/Sprites/needles_seamless_arrow_down.png" id="3_wv8mw"]
+[ext_resource type="Texture2D" uid="uid://c4bjonbku666e" path="res://Scenes/bludiste/Sprites/needles_seamless_arrow_left.png" id="4_3e7nb"]
+[ext_resource type="Texture2D" uid="uid://dmjgsau0s08qy" path="res://Scenes/bludiste/Sprites/wall.png" id="4_4dbsc"]
+[ext_resource type="Texture2D" uid="uid://bsitmkyfyfve4" path="res://Scenes/bludiste/Sprites/light.webp" id="4_7ti3l"]
+[ext_resource type="Texture2D" uid="uid://c1seocr233ekj" path="res://Scenes/bludiste/Sprites/ant_nest_normal.png" id="4_lxmk1"]
+[ext_resource type="Texture2D" uid="uid://s7i8l1tsn5nq" path="res://Scenes/bludiste/Sprites/needles_seamless_arrow_right.png" id="5_kmgha"]
+[ext_resource type="Texture2D" uid="uid://dk3pn4rtbbvyo" path="res://Scenes/bludiste/Sprites/needles_seamless_arrow_up.png" id="6_e8ngi"]
+[ext_resource type="Texture2D" uid="uid://cginhu641korb" path="res://Scenes/bludiste/Sprites/needles_seamless_4.png" id="8_lat02"]
 [ext_resource type="PackedScene" uid="uid://bu1uesgpppw3j" path="res://Scenes/bludiste/ladybug.tscn" id="11_mw0of"]
 [ext_resource type="PackedScene" uid="uid://cf61fhx2gf0th" path="res://Scenes/pause_menu.tscn" id="13_4klqe"]
 [ext_resource type="AudioStream" uid="uid://vr0ak8dqh7fg" path="res://Assets/audio/cave_sound_shorter.mp3" id="15_0p7c5"]
 [ext_resource type="Script" path="res://Scenes/bludiste/Scripts/KillAntsPressure.gd" id="15_irx4f"]
 [ext_resource type="AudioStream" uid="uid://bvcj3sa1ta4qk" path="res://Assets/audio/infect_sound.mp3" id="15_x6ate"]
-[ext_resource type="Texture2D" uid="uid://d2bv1xv3pep84" path="res://Scenes/bludiste/NewAssets/ant_nest_infected.png" id="18_egyjk"]
+[ext_resource type="Texture2D" uid="uid://d2bv1xv3pep84" path="res://Scenes/bludiste/Sprites/ant_nest_infected.png" id="18_egyjk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_24l5l"]
 font = ExtResource("2_uhvyj")
@@ -501,6 +501,7 @@ rotation = 2.35619
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_0p7c5")
+autoplay = true
 
 [node name="CharacterBody2D8" parent="." instance=ExtResource("11_mw0of")]
 position = Vector2(6300, 300)
