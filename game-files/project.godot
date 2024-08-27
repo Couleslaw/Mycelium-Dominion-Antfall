@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Spring Game Jam 2024"
+config/name="Mycelium Dominion: Antfall"
+config/description="This game was created during the Spring Game Jam 2024 on Matfyz."
 run/main_scene="res://Scenes/mainmenu/mainmenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.png"
